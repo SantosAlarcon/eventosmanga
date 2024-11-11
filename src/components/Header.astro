@@ -1,0 +1,64 @@
+---
+import HeaderLink from "./HeaderLink.astro";
+import { SITE_TITLE } from "../consts";
+---
+
+<header>
+    <nav class="header__nav">
+        <a href="/"
+            ><img
+                class="header__nav__logo"
+                src="/public/LogoWithText.svg"
+                aria-label={SITE_TITLE}
+            /></a
+        >
+        <div class="header__nav__links">
+            <HeaderLink class="header__nav__link" href="/eventos"
+                >Eventos</HeaderLink
+            >
+            <HeaderLink class="header__nav__link" href="/calendario"
+                >Calendario</HeaderLink
+            >
+        </div>
+    </nav>
+</header>
+<style>
+    header {
+        padding: 0.5rem 2rem;
+        background: var(--red);
+        box-shadow: 0 2px 8px rgba(var(--black), 5%);
+    }
+
+    .header__nav__logo {
+        height: 3.5rem;
+    }
+
+    .header__nav__links {
+        display: flex;
+        gap: 1.5rem;
+        font-size: 1rem;
+    }
+
+    h2 {
+        margin: 0;
+        font-size: 2rem;
+    }
+
+    h2 a,
+    h2 a.active {
+        text-decoration: none;
+    }
+    nav {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+    nav a {
+        color: var(--foreground);
+        text-decoration: none;
+    }
+    nav a.active {
+        text-decoration: none;
+        border-bottom-color: var(--accent);
+    }
+</style>

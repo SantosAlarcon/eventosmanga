@@ -1,0 +1,16 @@
+---
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import BaseHead from "../components/BaseHead.astro";
+---
+
+<html lang="es">
+    <head>
+        <BaseHead title="Eventos Manga" description="Todos los eventos de manga de España en un solo lugar" />
+    </head>
+    <body>
+        <Header />
+        <slot />
+        <Footer />
+    </body>
+</html>

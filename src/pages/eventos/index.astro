@@ -1,0 +1,34 @@
+---
+import { getCollection } from "astro:content";
+import MainLayout from "../../layouts/MainLayout.astro";
+const events = (await getCollection('events')).sort(
+	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
+);
+console.log(events);
+---
+
+<MainLayout title="Eventos">
+    <section class="eventos">
+        <h1 class="eventos__title">Eventos</h1>
+        <div class="eventos__content">
+        </div>
+    </section>
+</MainLayout>
+
+<style>
+    .eventos {
+        padding: 2rem;
+        color: var(--foreground);
+    }
+
+    .eventos__title {
+        color: var(--foreground);
+    }
+
+    .eventos__content {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 1rem;
+    }
+</style>

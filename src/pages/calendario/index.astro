@@ -1,0 +1,30 @@
+---
+import MainLayout from "../../layouts/MainLayout.astro";
+---
+
+<MainLayout>
+    <section class="calendario">
+        <h1 class="calendario__title">Calendario</h1>
+        <div class="calendario__content">
+            <span>Falta poner aquí un componente de calendario para eventos...</span>
+        </div>
+    </section>
+</MainLayout>
+
+<style>
+    .calendario {
+        padding: 2rem;
+        color: var(--foreground);
+    }
+
+    .calendario__title {
+        color: var(--foreground);
+    }
+
+    .calendario__content {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 1rem;
+    }
+</style>
