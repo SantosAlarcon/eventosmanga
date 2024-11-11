@@ -21,11 +21,11 @@ const event = defineCollection({
         description: z.string(),
         startDate: z.coerce.date(),
         endDate: z.coerce.date(),
+        eventStartTime: z.string(),
+        eventEndTime: z.string(),
         heroImage: z.string().optional(),
         eventLocation: z.string(),
         eventProvince: z.string(),
-        eventDate: z.coerce.date(),
-        eventTime: z.string(),
         eventUrl: z.string(),
         eventPrice: z.string(),
     })

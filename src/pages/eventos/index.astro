@@ -1,8 +1,8 @@
 ---
 import { getCollection } from "astro:content";
 import MainLayout from "../../layouts/MainLayout.astro";
-const events = (await getCollection('events')).sort(
-	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
+const events = (await getCollection("event")).sort(
+    (a, b) => b.data.startDate.valueOf() - a.data.startDate.valueOf(),
 );
 console.log(events);
 ---
@@ -11,6 +11,22 @@ console.log(events);
     <section class="eventos">
         <h1 class="eventos__title">Eventos</h1>
         <div class="eventos__content">
+            {
+                events.map((event) => (
+                    <div class="eventos__item">
+                        <h2 class="eventos__item__title">{event.data.title}</h2>
+                        <img
+                            class="eventos__item__image"
+                            src={event.data.heroImage}
+                            alt={event.data.title}
+                        />
+                        <p class="eventos__item__date">
+                            {event.data.startDate.toLocaleDateString()} -{" "}
+                            {event.data.endDate.toLocaleDateString()}
+                        </p>
+                    </div>
+                ))
+            }
         </div>
     </section>
 </MainLayout>
