@@ -17,11 +17,15 @@ const { event } = Astro.props;
             <p class="event__item__location">
                 <img
                     class="event__item__location__icon"
-                    src="/public/location.svg"
+                    src="/public/icons/location.svg"
                 />
                 {event.data.province}
             </p>
             <p class="event__item__date">
+                <img
+                    class="event__item__date__icon"
+                    src="/public/icons/calendar.svg"
+                />
                 {event.data.startDate.toLocaleDateString()} -{" "}
                 {event.data.endDate.toLocaleDateString()}
             </p>
@@ -40,7 +44,6 @@ const { event } = Astro.props;
         flex-direction: column;
         gap: 1rem;
         padding: 1rem;
-
     }
 
     .event__item__title {
@@ -87,10 +90,21 @@ const { event } = Astro.props;
         width: 1rem;
         height: 1rem;
         filter: invert(1);
+        border-radius: 0;
     }
 
     .event__item__date {
+        display: flex;
+        align-items: center;
+        gap: 0.25rem;
         margin: 0;
         color: var(--foreground-light);
+    }
+
+    .event__item__date__icon {
+        width: 1rem;
+        height: 1rem;
+        filter: invert(1);
+        border-radius: 0;
     }
 </style>
