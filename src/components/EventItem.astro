@@ -1,44 +1,46 @@
 ---
 const { event } = Astro.props;
-const eventTitleSlug = event.title.toLowerCase().replace(/\s/g, "-");
-console.log(event);
 ---
 
-<article class="event__item">
-    <a href={`/evento/${eventTitleSlug}/`}>
+<a href={`/evento/${event.slug}/`}>
+    <article class="event__item">
         <div class="event__item__cover__container">
             <img
                 class="event__item__image"
-                src={event.heroImage}
-                alt={event.title}
+                src={event.data.heroImage}
+                alt={event.data.title}
                 loading="lazy"
             />
         </div>
-        <h2 class="event__item__title">{event.title}</h2>
+        <h2 class="event__item__title">{event.data.title}</h2>
         <div class="event__item__footer">
             <p class="event__item__location">
-                <img class="event__item__location__icon" src="/location.svg" />
-                {event.province}
+                <img
+                    class="event__item__location__icon"
+                    src="/public/location.svg"
+                />
+                {event.data.province}
             </p>
             <p class="event__item__date">
-                {event.startDate.toLocaleDateString()} -{" "}
-                {event.endDate.toLocaleDateString()}
+                {event.data.startDate.toLocaleDateString()} -{" "}
+                {event.data.endDate.toLocaleDateString()}
             </p>
         </div>
-    </a>
-</article>
+    </article>
+</a>
 
 <style>
+    a {
+        text-decoration: none;
+        color: var(--foreground);
+    }
+
     .event__item {
         display: flex;
         flex-direction: column;
         gap: 1rem;
         padding: 1rem;
 
-        & a {
-            text-decoration: none;
-            color: var(--foreground);
-        }
     }
 
     .event__item__title {

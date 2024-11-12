@@ -2,20 +2,20 @@
 import { getCollection } from "astro:content";
 import MainLayout from "../../layouts/MainLayout.astro";
 const events = (await getCollection("event")).sort(
-    (a, b) => b.data.startDate.valueOf() - a.data.startDate.valueOf(),
+    (a, b) => a.data.startDate.valueOf() - b.data.startDate.valueOf(),
 );
 import EventItem from "../../components/EventItem.astro";
 ---
 
-<MainLayout title="Eventos">
+<MainLayout title="Próximos eventos">
     <section class="eventos">
-        <h1 class="eventos__title">Próximos Eventos</h1>
+        <h1 class="eventos__title">Próximos eventos</h1>
         <div class="eventos__content">
             <ul class="eventos__list">
                 {
                     events.map((event) => (
                         <li class="eventos__list__item">
-                            <EventItem event={event.data} />
+                            <EventItem event={event} />
                         </li>
                     ))
                 }
@@ -32,11 +32,11 @@ import EventItem from "../../components/EventItem.astro";
 
     .eventos__title {
         color: var(--foreground);
+        font-size: 2.25rem;
     }
 
     .eventos__content {
         display: flex;
-        justify-content: center;
         align-items: center;
         gap: 1rem;
     }
