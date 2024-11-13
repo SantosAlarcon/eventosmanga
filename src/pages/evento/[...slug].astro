@@ -33,8 +33,10 @@ const { Content } = await event.render();
                         alt="calendar-icon"
                         class="event__info__icon"
                     />
-                    {event.data.startDate.toLocaleDateString()} - {
-                        event.data.endDate.toLocaleDateString()
+                    {
+                        event.data.startDate === event.data.endDate
+                            ? event.data.startDate.toLocaleDateString()
+                            : `${event.data.startDate.toLocaleDateString()} - ${event.data.endDate.toLocaleDateString()}`
                     }
                 </p>
                 <p class="event__info__schedule">
