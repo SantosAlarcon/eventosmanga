@@ -10,6 +10,7 @@ const { event } = Astro.props;
                 src={event.data.heroImage}
                 alt={event.data.title}
                 loading="lazy"
+                transition:name={`${event.slug}-cover`}
             />
         </div>
         <h2 class="event__item__title">{event.data.title}</h2>
