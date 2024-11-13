@@ -44,11 +44,9 @@ import EventItem from "../../components/EventItem.astro";
     .eventos__list {
         list-style: none;
         padding: 0;
-        display: flex;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
         gap: 1.5rem;
-    }
-
-    .eventos__list__item {
-        width: 25%;
+        width: 100%;
     }
 </style>
