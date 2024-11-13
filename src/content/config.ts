@@ -28,6 +28,7 @@ const event = defineCollection({
         province: z.string(),
         url: z.string(),
         price: z.number(),
+	twitterProfile: z.string().optional()
     })
 })
 
