@@ -1,6 +1,7 @@
 ---
 import { type CollectionEntry, getCollection } from "astro:content";
 import MainLayout from "../../layouts/MainLayout.astro";
+import { Image } from "astro:assets";
 
 export async function getStaticPaths() {
     const events = await getCollection("event");
@@ -19,19 +20,25 @@ const { Content } = await event.render();
     <div class="event__container">
         <div class="event__info__header">
             <div class="event__info__cover">
-                <img
+                <Image
                     src={event.data.heroImage}
                     class="event__info__cover__image"
                     transition:name={`${event.slug}-cover`}
+                    alt={`Cartel de ${event.data.title}`}
+                    loading="lazy"
+                    width="640"
+                    height="200"
                 />
             </div>
             <div class="event__info__data">
                 <h1 class="event__info__title">{event.data.title}</h1>
                 <p class="event__info__date">
-                    <img
+                    <Image
                         src="/public/icons/calendar.svg"
                         alt="calendar-icon"
                         class="event__info__icon"
+                        width="24"
+                        height="24"
                     />
                     {
                         event.data.startDate === event.data.endDate
@@ -40,18 +47,22 @@ const { Content } = await event.render();
                     }
                 </p>
                 <p class="event__info__schedule">
-                    <img
+                    <Image
                         src="/public/icons/clock.svg"
                         alt="clock-icon"
                         class="event__info__icon"
+                        width="24"
+                        height="24"
                     />
                     {event.data.startTime} - {event.data.endTime}
                 </p>
                 <p class="event__info__link">
-                    <img
+                    <Image
                         src="/public/icons/link.svg"
                         alt="link-icon"
                         class="event__info__icon"
+                        width="24"
+                        height="24"
                     />
                     <a
                         href={event.data.url}
@@ -62,10 +73,12 @@ const { Content } = await event.render();
                     </a>
                 </p>
                 <p class="event__info__location">
-                    <img
+                    <Image
                         src="/public/icons/location.svg"
                         alt="location-icon"
                         class="event__info__icon"
+                        width="24"
+                        height="24"
                     />
                     {event.data.location} - ({event.data.province})
                 </p>
@@ -79,10 +92,12 @@ const { Content } = await event.render();
                                 class="event__info__twitter__button"
                                 arial-label="Twitter"
                             >
-                                <img
+                                <Image
                                     src="/public/icons/twitter.svg"
                                     alt="twitter-icon"
                                     class="event__info__twitter__icon"
+                                    width="36"
+                                    height="36"
                                 />
                             </a>
                         </p>
@@ -98,6 +113,12 @@ const { Content } = await event.render();
 </MainLayout>
 
 <style is:global>
+    @media (width <= 512px) {
+        iframe {
+            height: 300px;
+        }
+    }
+
     h1 {
         margin-bottom: 1rem;
     }
@@ -112,6 +133,10 @@ const { Content } = await event.render();
 
     ul > li {
         margin-left: 3rem;
+
+        @media (width <= 512px) {
+            margin-left: 2rem;
+        }
     }
 
     .event__container {
@@ -124,6 +149,10 @@ const { Content } = await event.render();
         display: flex;
         flex-direction: column;
         gap: 2rem;
+
+        @media (width <= 512px) {
+            padding: 3rem;
+        }
     }
 
     .event__info__header {
@@ -131,6 +160,11 @@ const { Content } = await event.render();
         justify-content: center;
         align-items: flex-start;
         gap: 1.5rem;
+
+        @media (width <= 512px) {
+            flex-direction: column;
+            align-items: center;
+        }
     }
 
     .event__info__cover__image {
@@ -185,7 +219,6 @@ const { Content } = await event.render();
 
     .event__info__link > a {
         color: var(--foreground);
-        text-decoration: none;
         font-size: 0.9rem;
     }
 
@@ -214,5 +247,12 @@ const { Content } = await event.render();
     .event__info__twitter__icon {
         width: 1.75rem;
         height: 1.75rem;
+    }
+
+    @media (width <= 512px) {
+        p,
+        li {
+            font-size: 1rem;
+        }
     }
 </style>

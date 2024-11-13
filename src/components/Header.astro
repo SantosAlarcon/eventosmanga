@@ -1,15 +1,19 @@
 ---
 import HeaderLink from "./HeaderLink.astro";
 import { SITE_TITLE } from "../consts";
+import { Image } from "astro:assets";
 ---
 
 <header>
     <nav class="header__nav">
         <a href="/"
-            ><img
+            ><Image
                 class="header__nav__logo"
                 src="/public/LogoWithText.svg"
                 aria-label={SITE_TITLE}
+                height="400"
+                width="160"
+                alt="Logo"
             /></a
         >
         <div class="header__nav__links">
@@ -31,12 +35,23 @@ import { SITE_TITLE } from "../consts";
 
     .header__nav__logo {
         height: 3.5rem;
+        border-radius: 0%;
+
+        @media (width <= 512px) {
+            width: 6rem;
+            height: auto;
+        }
     }
 
     .header__nav__links {
         display: flex;
         gap: 1.5rem;
         font-size: 1rem;
+
+        @media (width <= 512px) {
+            gap: 1rem;
+            font-size: 0.8rem;
+        }
     }
 
     h2 {

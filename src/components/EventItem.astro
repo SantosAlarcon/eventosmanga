@@ -1,31 +1,40 @@
 ---
+import { Image } from "astro:assets";
 const { event } = Astro.props;
 ---
 
 <a href={`/evento/${event.slug}/`}>
     <article class="event__item">
         <div class="event__item__cover__container">
-            <img
+            <Image
                 class="event__item__image"
                 src={event.data.heroImage}
                 alt={event.data.title}
                 loading="lazy"
                 transition:name={`${event.slug}-cover`}
+                width="640"
+                height="200"
             />
         </div>
         <h2 class="event__item__title">{event.data.title}</h2>
         <div class="event__item__footer">
             <p class="event__item__location">
-                <img
+                <Image
                     class="event__item__location__icon"
                     src="/public/icons/location.svg"
+                    alt="Location icon"
+                    width="24"
+                    height="24"
                 />
                 {event.data.province}
             </p>
             <p class="event__item__date">
-                <img
+                <Image
                     class="event__item__date__icon"
                     src="/public/icons/calendar.svg"
+                    alt="Calendar icon"
+                    width="24"
+                    height="24"
                 />
                 {event.data.startDate.toLocaleDateString()} -{" "}
                 {event.data.endDate.toLocaleDateString()}
