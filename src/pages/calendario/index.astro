@@ -1,12 +1,13 @@
 ---
 import MainLayout from "../../layouts/MainLayout.astro";
+import CalendarApp from "../../components/Calendar.jsx"
 ---
 
 <MainLayout title="Eventos Manga - Calendario">
     <section class="calendario">
         <h1 class="calendario__title">Calendario</h1>
         <div class="calendario__content">
-            <span>Falta poner aquí un componente de calendario para eventos...</span>
+            <CalendarApp client:load />
         </div>
     </section>
 </MainLayout>

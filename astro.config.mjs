@@ -1,5 +1,6 @@
 import { defineConfig } from 'astro/config';
 import mdx from '@astrojs/mdx';
+import preact from '@astrojs/preact';
 
 import sitemap from '@astrojs/sitemap';
 
@@ -10,7 +11,5 @@ export default defineConfig({
     image: {
         remotePatterns: [{protocol: "https"}]
     },
-	integrations: [mdx({
-        optimize: true,
-    }), sitemap()],
+	integrations: [preact(), mdx({optimize: true}), sitemap()],
 });

@@ -1,6 +1,8 @@
 {
-  "extends": "astro/tsconfigs/strict",
-  "compilerOptions": {
-    "strictNullChecks": true
-  }
+	"extends": "astro/tsconfigs/strict",
+	"compilerOptions": {
+		"jsx": "preact-jsx",
+		"jsxImportSource": "preact",
+		"strictNullChecks": true
+	}
 }
