@@ -1,4 +1,5 @@
 ---
+import Calendar from "../../components/Calendar.tsx";
 import MainLayout from "../../layouts/MainLayout.astro";
 ---
 
@@ -6,14 +7,14 @@ import MainLayout from "../../layouts/MainLayout.astro";
     <section class="calendario">
         <h1 class="calendario__title">Calendario</h1>
         <div class="calendario__content">
-            <div id="calendario"></div>
+            <Calendar />
         </div>
     </section>
 </MainLayout>
 
 <style>
     .calendario {
-        padding: 2rem;
+        padding: 3rem;
         color: var(--foreground);
     }
 
@@ -29,21 +30,3 @@ import MainLayout from "../../layouts/MainLayout.astro";
         gap: 1rem;
     }
 </style>
-
-<script type="module">
-import { Calendar } from "@fullcalendar/core";
-    import dayGridPlugin from "@fullcalendar/daygrid";
-
-    document.addEventListener("DOMContentLoaded", function () {
-        const calendarEl = document.getElementById("calendario");
-        const calendar = new Calendar(calendarEl, {
-            plugins: [dayGridPlugin],
-            headerToolbar: {
-                left: "prev,next today",
-                center: "title",
-                right: "dayGridMonth,timeGridWeek,timeGridDay,listWeek",
-            },
-        });
-        calendar.render();
-    });
-</script>
