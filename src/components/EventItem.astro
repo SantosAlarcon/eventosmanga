@@ -3,7 +3,7 @@ import { Image } from "astro:assets";
 const { event } = Astro.props;
 ---
 
-<a href={`/evento/${event.slug}/`}>
+<a href={`/eventosmanga/evento/${event.slug}/`}>
     <article class="event__item">
         <div class="event__item__cover__container">
             <Image
@@ -21,7 +21,7 @@ const { event } = Astro.props;
             <p class="event__item__location">
                 <Image
                     class="event__item__location__icon"
-                    src="/icons/location.svg"
+                    src="/eventosmanga/icons/location.svg"
                     alt="Location icon"
                     width="24"
                     height="24"
@@ -31,7 +31,7 @@ const { event } = Astro.props;
             <p class="event__item__date">
                 <Image
                     class="event__item__date__icon"
-                    src="/icons/calendar.svg"
+                    src="/eventosmanga/icons/calendar.svg"
                     alt="Calendar icon"
                     width="24"
                     height="24"
