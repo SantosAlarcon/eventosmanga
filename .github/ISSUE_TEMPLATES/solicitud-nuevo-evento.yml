@@ -1,0 +1,83 @@
+name: Solicitud nuevo evento
+description: Solicitud para dar de alta un evento nuevo
+title: "Añadir nuevo evento: "
+labels: ["enhancement"]
+assignees: ["santosalarcon"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        **Muchas gracias por tu ayuda**
+  - type: input
+    id: event-name
+    attributes:
+      label: Nombre o título del evento
+    validations:
+      required: true
+  - type: input
+    id: event-website
+    attributes:
+      label: Web del evento
+    validations:
+      required: true
+  - type: textarea
+    id: short-description
+    attributes:
+      label: Descripción corta
+    validations:
+      required: true
+  - type: input
+    id: start-date
+    attributes:
+      label: Fecha de inicio
+    validations:
+      required: true
+  - type: input
+    id: end-date
+    attributes:
+      label: Fecha de fin
+    validations:
+      required: true
+  - type: input
+    id: start-time
+    attributes:
+      label: Hora de inicio
+    validations:
+      required: true
+  - type: input
+    id: end-time
+    attributes:
+      label: Hora de fin
+    validations:
+      required: true
+  - type: input
+    id: province
+    attributes:
+      label: Provincia
+    validations:
+      required: true
+  - type: input
+    id: location
+    attributes:
+      label: Localización del evento
+    validations:
+      required: true
+  - type: input
+    id: cover-image
+    attributes:
+      label: Imagen de portada
+    validations:
+      required: true
+  - type: input
+    id: twitter-profile
+    attributes:
+      label: Perfil de Twitter/X
+    validations:
+      required: true
+  - type: textarea
+    id: details
+    attributes:
+      label: Detalles
+      description: Esta información aparecerá como contenido del evento
+    validations:
+      required: false
