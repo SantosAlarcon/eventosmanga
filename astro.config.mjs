@@ -6,6 +6,7 @@ import sitemap from '@astrojs/sitemap';
 // https://astro.build/config
 export default defineConfig({
     site: 'https://santosalarcon.github.io',
+    base: "eventosmanga",
     image: {
         remotePatterns: [{protocol: "https"}]
     },
