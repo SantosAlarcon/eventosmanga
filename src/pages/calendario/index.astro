@@ -1,13 +1,12 @@
 ---
 import MainLayout from "../../layouts/MainLayout.astro";
-import CalendarApp from "../../components/Calendar.jsx"
 ---
 
 <MainLayout title="Eventos Manga - Calendario">
     <section class="calendario">
         <h1 class="calendario__title">Calendario</h1>
         <div class="calendario__content">
-            <CalendarApp client:load />
+            <div id="calendario"></div>
         </div>
     </section>
 </MainLayout>
@@ -30,3 +29,21 @@ import CalendarApp from "../../components/Calendar.jsx"
         gap: 1rem;
     }
 </style>
+
+<script type="module">
+import { Calendar } from "@fullcalendar/core";
+    import dayGridPlugin from "@fullcalendar/daygrid";
+
+    document.addEventListener("DOMContentLoaded", function () {
+        const calendarEl = document.getElementById("calendario");
+        const calendar = new Calendar(calendarEl, {
+            plugins: [dayGridPlugin],
+            headerToolbar: {
+                left: "prev,next today",
+                center: "title",
+                right: "dayGridMonth,timeGridWeek,timeGridDay,listWeek",
+            },
+        });
+        calendar.render();
+    });
+</script>
