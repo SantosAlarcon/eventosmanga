@@ -1,5 +1,8 @@
+/** @jsxImportSource react */
+
 import FullCalendar from "@fullcalendar/react";
 import dayGridPlugin from "@fullcalendar/daygrid";
+import timeGridPlugin from "@fullcalendar/timegrid";
 import listPlugin from "@fullcalendar/list";
 import esLocale from "@fullcalendar/core/locales/es";
 import { useEffect, useState } from "react";
@@ -9,7 +12,6 @@ const Calendar = () => {
 
     const fetchEvents = async () => {
         const events = await fetch("/eventosmanga/api/event").then((res) => res.json());
-        console.log(events.data);
         setEvents(events);
     };
 
@@ -19,19 +21,16 @@ const Calendar = () => {
 
     return (
         <FullCalendar
-            plugins={[dayGridPlugin, listPlugin]}
+            plugins={[dayGridPlugin, timeGridPlugin, listPlugin]}
             headerToolbar={{
                 left: "",
-                center: "title",
+                center: "prev, title, next",
+                right: "dayGridMonth, timeGridWeek, listWeek"
             }}
             initialView="dayGridMonth"
             locale={esLocale}
             events={events}
-            eventDisplay="block"
-            eventTimeFormat={{
-                hour: "2-digit",
-                minute: "2-digit",
-            }}
+            eventDisplay="auto"
         />
     );
 };

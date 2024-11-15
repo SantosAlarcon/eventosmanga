@@ -1,5 +1,5 @@
 ---
-import Calendar from "../../components/Calendar.tsx";
+import Calendar from "../../components/Calendar.jsx";
 import MainLayout from "../../layouts/MainLayout.astro";
 ---
 
@@ -7,7 +7,7 @@ import MainLayout from "../../layouts/MainLayout.astro";
     <section class="calendario">
         <h1 class="calendario__title">Calendario</h1>
         <div class="calendario__content">
-            <Calendar />
+            <Calendar client:load />
         </div>
     </section>
 </MainLayout>
