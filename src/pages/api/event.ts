@@ -10,7 +10,7 @@ type CalendarEvent = {
 };
 
 export const GET: APIRoute = async () => {
-    const response: Array = await getCollection("event").then((events) => JSON.stringify(events));
+    const response  = await getCollection("event").then((events) => JSON.stringify(events));
     const events: CalendarEvent[] = [];
 
     // @ts-ignore
