@@ -1,0 +1,114 @@
+---
+import { Image } from "astro:assets";
+---
+
+<nav class="mobile__nav">
+    <div class="mobile__nav__link">
+        <a href="/eventosmanga/eventos" aria-label="Eventos">
+            <Image
+                class="mobile__nav__link__icon"
+                src="/eventosmanga/public/icons/event.svg"
+                alt="Eventos"
+                width="40"
+                height="40"
+            />
+            <span>Eventos</span>
+        </a>
+    </div>
+    <div class="mobile__nav__link">
+        <a href="/eventosmanga/calendario" aria-label="Calendario">
+            <Image
+                class="mobile__nav__link__icon"
+                src="/eventosmanga/public/icons/event-calendar.svg"
+                alt="Calendario"
+                width="40"
+                height="40"
+            />
+            <span>Calendario</span>
+        </a>
+    </div>
+    <div class="mobile__nav__link">
+        <a
+            href="https://github.com/SantosAlarcon/eventosmanga/issues/new?assignees=santosalarcon&labels=enhancement&projects=&template=solicitud-nuevo-evento.yml&title=A%C3%B1adir+nuevo+evento%3A+"
+            target="_blank"
+            aria-label="Nuevo evento"
+        >
+            <Image
+                class="mobile__nav__link__icon"
+                src="/eventosmanga/public/icons/add.svg"
+                alt="Nuevo evento"
+                width="40"
+                height="40"
+            />
+            <span>Nuevo evento</span>
+        </a>
+    </div>
+</nav>
+<style>
+    .mobile__nav {
+        border: 1px solid var(--foreground);
+        border-radius: 3rem;
+        display: none;
+        height: 72px;
+        padding: 1rem;
+        position: fixed;
+        bottom: 1rem;
+        width: 65%;
+        background-color: #6006;
+        backdrop-filter: blur(10px);
+        z-index: 10;
+        justify-content: space-around;
+        left: 50%;
+        transform: translateX(-50%);
+
+        @media (width <= 640px) {
+            display: flex;
+        }
+    }
+
+    .mobile__nav__link {
+        display: flex;
+        font-size: .8rem;
+        gap: 1.5rem;
+
+        & > a {
+            display: flex;
+            flex-direction: column;
+            gap: .25rem;
+            align-items: center;
+            justify-content: center;
+        }
+    }
+
+    .mobile__nav__link__icon {
+        width: 1.5rem;
+        height: 1.5rem;
+        filter: invert(1);
+        border-radius: 0;
+    }
+
+    .mobile__nav__button {
+        background-color: var(--foreground);
+        color: var(--red) !important;
+        font-weight: bold;
+        font-size: 0.8rem;
+        padding: 0.5rem 1rem;
+        border-radius: 1rem;
+        transition: all 0.3s ease-in-out;
+
+        &:hover {
+            transform: scale(1.1);
+            background-color: #ee6;
+            box-shadow: 0 0 1rem #ee6;
+        }
+    }
+
+    nav a {
+        color: var(--foreground);
+        text-decoration: none;
+    }
+    nav a.active {
+        text-decoration: none;
+        border-bottom-color: var(--accent);
+    }
+</style>

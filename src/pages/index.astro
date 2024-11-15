@@ -1,50 +1,126 @@
 ---
-import BaseHead from '../components/BaseHead.astro';
-import Header from '../components/Header.astro';
-import Footer from '../components/Footer.astro';
-import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
+import BaseHead from "../components/BaseHead.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
+import { ViewTransitions } from "astro:transitions";
+import EventItem from "../components/EventItem.astro";
+import { getCollection } from "astro:content";
+const events = (await getCollection("event"))
+    .sort((a, b) => a.data.startDate.valueOf() - b.data.startDate.valueOf())
+    .splice(0, 9);
 ---
 
 <!doctype html>
-<html lang="en">
-	<head>
-		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
-	</head>
-	<body>
-		<Header />
-		<main>
-			<h1>🧑‍🚀 Hello, Astronaut!</h1>
-			<p>
-				Welcome to the official <a href="https://astro.build/">Astro</a> blog starter template. This
-				template serves as a lightweight, minimally-styled starting point for anyone looking to build
-				a personal website, blog, or portfolio with Astro.
-			</p>
-			<p>
-				This template comes with a few integrations already configured in your
-				<code>astro.config.mjs</code> file. You can customize your setup with
-				<a href="https://astro.build/integrations">Astro Integrations</a> to add tools like Tailwind,
-				React, or Vue to your project.
-			</p>
-			<p>Here are a few ideas on how to get started with the template:</p>
-			<ul>
-				<li>Edit this page in <code>src/pages/index.astro</code></li>
-				<li>Edit the site header items in <code>src/components/Header.astro</code></li>
-				<li>Add your name to the footer in <code>src/components/Footer.astro</code></li>
-				<li>Check out the included blog posts in <code>src/content/blog/</code></li>
-				<li>Customize the blog post page layout in <code>src/layouts/BlogPost.astro</code></li>
-			</ul>
-			<p>
-				Have fun! If you get stuck, remember to <a href="https://docs.astro.build/"
-					>read the docs
-				</a> or <a href="https://astro.build/chat">join us on Discord</a> to ask questions.
-			</p>
-			<p>
-				Looking for a blog template with a bit more personality? Check out <a
-					href="https://github.com/Charca/astro-blog-template"
-					>astro-blog-template
-				</a> by <a href="https://twitter.com/Charca">Maxi Ferreira</a>.
-			</p>
-		</main>
-		<Footer />
-	</body>
+<html lang="es">
+    <head>
+        <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+    </head>
+    <body>
+        <Header />
+        <main class="home__container">
+            <section class="home__hero">
+                <img
+                    src="/eventosmanga/public/LogoHorizontal.svg"
+                    alt="Eventos Manga"
+                    width="100%"
+                />
+                <h1 class="home__hero__title">¡Bienvenid@ a Eventos Manga!</h1>
+                <p class="home__hero__description">
+                    En <b>Eventos Manga</b> encontrarás el calendario más completo
+                    de salones, ferias, concursos y todas las actividades relacionadas
+                    con el mundo del <b>manga y anime</b> en España.
+                </p>
+                <h3 class="home__hero__cta">
+                    ¡Mantente informado y únete a la comunidad otaku!
+                </h3>
+            </section>
+            <section class="home__events">
+                <h2 class="home__events__title">Próximos eventos</h2>
+                <div class="home__events__list__container">
+                    <ul class="home__events__list">
+                        {
+                            events.map((event) => (
+                                <li class="home__events__list__item">
+                                    <EventItem event={event} />
+                                </li>
+                            ))
+                        }
+                    </ul>
+                </div>
+            </section>
+        </main>
+        <Footer />
+        <ViewTransitions />
+    </body><style>
+        p {
+            padding: 1rem 0;
+        }
+
+        .home__container {
+            display: flex;
+            flex-direction: column;
+            gap: 3rem;
+            background: url("/eventosmanga/public/Fondo.webp") no-repeat center center;
+            background-size: cover;
+            padding: 3rem;
+            min-width: 100%;
+            background-color: var(--red);
+            background-blend-mode: overlay;
+        }
+
+        .home__hero__title,
+        .home__hero__cta {
+            text-align: center;
+            
+            @media (width <= 512px) {
+                font-size: clamp(1rem, 5vw, 3rem);
+            }
+        }
+
+        .home__hero__description {
+            text-align: center;
+
+            @media (width <= 512px) {
+                font-size: clamp(0.7rem, 5vw, 1rem);
+            }
+        }
+
+        .home__events__title {
+            @media (width <= 512px) {
+                font-size: clamp(1rem, 5vw, 3rem);
+                text-align: center;
+            }
+        }
+
+        .home__events__list__container {
+            overflow-x: scroll;
+
+            @media (width <= 512px) {
+                overflow: auto;
+                display: flex;
+                flex-direction: column;
+            }
+        }
+
+        .home__events__list {
+            display: flex;
+            list-style: none;
+            padding: 0;
+            width: max-content;
+
+            @media (width <= 512px) {
+                flex-direction: column;
+                width: 100%;
+            }
+        }
+
+        .home__events__list__item {
+            width: 25%;
+
+            @media (width <= 512px) {
+                width: 100%;
+            }
+        }
+    </style>
 </html>
