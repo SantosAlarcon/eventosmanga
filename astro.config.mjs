@@ -12,5 +12,4 @@ export default defineConfig({
         remotePatterns: [{protocol: "https"}]
     },
     integrations: [react(), mdx({optimize: true}), sitemap()],
-    publicDir: '/public/',
 });
