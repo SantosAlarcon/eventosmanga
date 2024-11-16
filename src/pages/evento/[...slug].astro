@@ -2,6 +2,7 @@
 import { type CollectionEntry, getCollection } from "astro:content";
 import MainLayout from "../../layouts/MainLayout.astro";
 import { Image } from "astro:assets";
+import FormattedDate from "../../components/FormattedDate.astro";
 
 export async function getStaticPaths() {
     const events = await getCollection("event");
@@ -41,9 +42,15 @@ const { Content } = await event.render();
                         height="24"
                     />
                     {
-                        event.data.startDate === event.data.endDate
-                            ? event.data.startDate.toLocaleDateString()
-                            : `${event.data.startDate.toLocaleDateString()} - ${event.data.endDate.toLocaleDateString()}`
+                        new Date(event.data.startDate).getTime() ===
+                        new Date(event.data.endDate).getTime() ? (
+                            <FormattedDate date={event.data.startDate} />
+                        ) : (
+                            <>
+                                <FormattedDate date={event.data.startDate} /> - 
+                                <FormattedDate date={event.data.endDate} />
+                            </>
+                        )
                     }
                 </p>
                 <p class="event__info__schedule">

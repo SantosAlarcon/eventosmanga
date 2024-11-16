@@ -82,13 +82,13 @@ html {
 
 @font-face {
     font-family: "Red Hat Display";
-    src: url("/public/fonts/RedHatDisplay-VF.ttf");
+    src: url("/eventosmanga/fonts/RedHatDisplay-VF.ttf");
     font-display: swap;
 }
 
 @font-face {
     font-family: "Red Hat Display";
-    src: url("/public/fonts/RedHatDisplay-Italic-VF.ttf");
+    src: url("/eventosmanga/fonts/RedHatDisplay-Italic-VF.ttf");
     font-style: italic;
     font-display: swap;
 }
