@@ -1,22 +1,17 @@
 ---
 import { getCollection } from "astro:content";
-import MainLayout from "../../layouts/MainLayout.astro";
+import MainLayout from "../../../layouts/MainLayout.astro";
 
 // @ts-ignore
-const events = (await getCollection("event")).filter((event) => new Date(event.data.startDate) >= new Date()).sort(
+const events = (await getCollection("event")).filter((event) => new Date(event.data.startDate) < new Date()).sort(
     (a, b) => a.data.startDate.valueOf() - b.data.startDate.valueOf(),
 );
-import EventItem from "../../components/EventItem.astro";
+import EventItem from "../../../components/EventItem.astro";
 ---
 
-<MainLayout title="Eventos Manga - Próximos eventos">
+<MainLayout title="Eventos Manga - Eventos pasados">
     <section class="eventos">
-        <div class="eventos__header">
-            <a class="eventos__header__link" href="/eventosmanga/eventos/pasados">
-                Ver Eventos pasados
-            </a>
-        </div>
-        <h1 class="eventos__title">Próximos eventos</h1>
+        <h1 class="eventos__title">Eventos perdidos</h1>
         <div class="eventos__content">
             <ul class="eventos__list">
                 {
@@ -34,14 +29,6 @@ import EventItem from "../../components/EventItem.astro";
 <style>
     .eventos {
         padding: 3rem;
-        color: var(--foreground);
-    }
-
-    .eventos__header {
-        padding: 1rem 0;
-    }
-
-    .eventos__header__link {
         color: var(--foreground);
     }
 
