@@ -3,8 +3,8 @@ import { getCollection } from "astro:content";
 
 type CalendarEvent = {
     title: string;
-    start: string;
-    end: string;
+    start: Date;
+    end: Date;
     location: string;
     url: string;
 };
@@ -17,8 +17,8 @@ export const GET: APIRoute = async () => {
     JSON.parse(response).map((event) => {
         events.push({
             title: event.data.title,
-            start: event.data.startDate,
-            end: event.data.endDate,
+            start: new Date(event.data.startDate),
+            end: new Date(event.data.endDate),
             location: event.data.location,
             url: event.data.url,
         });
