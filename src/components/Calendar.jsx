@@ -11,30 +11,26 @@ import "../styles/calendar.css";
 const Calendar = () => {
     const [events, setEvents] = useState([]);
     const [isMobile, setIsMobile] = useState(false);
+    const [mounted, setMounted] = useState(false);
 
     const fetchEvents = async () => {
         const events = await fetch("/eventosmanga/api/event").then((res) => res.json());
         setEvents(events);
     };
-    
 
     useEffect(() => {
-        const handleResize = () => {
-            if (window.innerWidth <= 512) {
-                setIsMobile(true);
-            } else {
-                setIsMobile(false);
-            }
-        };
-
-        window.addEventListener("resize", handleResize);
+        if (window.innerWidth <= 512) {
+            setIsMobile(true);
+        } else {
+            setIsMobile(false);
+        }
 
         fetchEvents();
 
-        return () => {
-            window.removeEventListener("resize", handleResize);
-        };
+        setMounted(true);
     }, []);
+
+    if (!mounted) return null;
 
     return (
         <FullCalendar
