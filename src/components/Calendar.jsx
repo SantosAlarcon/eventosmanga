@@ -10,14 +10,30 @@ import "../styles/calendar.css";
 
 const Calendar = () => {
     const [events, setEvents] = useState([]);
+    const [isMobile, setIsMobile] = useState(false);
 
     const fetchEvents = async () => {
         const events = await fetch("/eventosmanga/api/event").then((res) => res.json());
         setEvents(events);
     };
+    
 
     useEffect(() => {
+        const handleResize = () => {
+            if (window.innerWidth <= 512) {
+                setIsMobile(true);
+            } else {
+                setIsMobile(false);
+            }
+        };
+
+        window.addEventListener("resize", handleResize);
+
         fetchEvents();
+
+        return () => {
+            window.removeEventListener("resize", handleResize);
+        };
     }, []);
 
     return (
@@ -25,15 +41,15 @@ const Calendar = () => {
             plugins={[dayGridPlugin, timeGridPlugin, listPlugin]}
             headerToolbar={{
                 left: "prev, next",
-		center: "title",
-                right: "dayGridMonth, timeGridWeek, listWeek"
+                center: "title",
+                right: "dayGridMonth, timeGridWeek, listWeek",
             }}
-            initialView="dayGridMonth"
+            initialView={isMobile ? "listWeek" : "dayGridMonth"}
             locale={esLocale}
             events={events}
-	    eventDisplay="auto"
-	    displayEventTime={ false }
-	    displayEventEnd={ false }
+            eventDisplay="auto"
+            displayEventTime={false}
+            displayEventEnd={false}
         />
     );
 };
