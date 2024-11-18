@@ -32,17 +32,25 @@ import EventItem from "../../components/EventItem.astro";
 </MainLayout>
 
 <style>
+    a {
+        color: var(--foreground);
+    }
+
     .eventos {
         padding: 3rem;
         color: var(--foreground);
+        display: flex;
+        flex-direction: column;
+
+        @media (width <= 640px) {
+            padding: 1.25rem;
+            align-items: center;
+            justify-content: center;
+        }
     }
 
     .eventos__header {
-        padding: 1rem 0;
-    }
-
-    .eventos__header__link {
-        color: var(--foreground);
+        margin-bottom: 2rem;
     }
 
     .eventos__title {
@@ -54,6 +62,10 @@ import EventItem from "../../components/EventItem.astro";
         display: flex;
         align-items: center;
         gap: 1rem;
+
+        @media (width <= 640px) {
+            width: 100%;
+        }
     }
 
     .eventos__list {

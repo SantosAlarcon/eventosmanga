@@ -16,6 +16,10 @@ import MainLayout from "../../layouts/MainLayout.astro";
     .calendario {
         padding: 3rem;
         color: var(--foreground);
+
+        @media (width <= 640px) {
+            padding: 1.25rem;
+        }
     }
 
     .calendario__title {
