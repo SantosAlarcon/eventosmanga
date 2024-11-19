@@ -1,68 +1,34 @@
-# Astro Starter Kit: Blog
+<div class="center">
+  <a href="https://santosalarcon.github.io/eventosmanga" target="_blank">
+  <img src="public/LogoHorizontal.svg" alt="Logo" />
+  </a>
+  <h3 align="center">Todos los eventos de manga y anime de España en un sólo lugar</h3>
+</div>
 
-```sh
-npm create astro@latest -- --template blog
-```
+## Descripción
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/blog)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/blog)
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/blog/devcontainer.json)
+Este proyecto tiene como objetivo crear una plataforma en línea completa y actualizada donde los fans del manga y el anime en España puedan encontrar toda la información necesaria sobre eventos relacionados: convenciones, ferias, exposiciones, talleres, etc. La web servirá como punto de encuentro para la comunidad, facilitando la asistencia a eventos y fomentando la interacción entre los aficionados.
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+## Características
++ 📅 **Calendario de eventos**: Un calendario interactivo que muestre los eventos próximos y pasados, con filtros por fecha, ubicación, tipo de evento y temática.
++ 🎫 **Perfil de eventos**: Páginas dedicadas a cada evento con información detallada (fecha, hora, lugar, precio, actividades, invitados, etc.).
++ 🗺️ **Mapa interactivo**: En cada página del evento hay un enlace a la ubicación del evento en **Google Maps**.
++ 📱 **Diseño responsive**: La web estará diseñada para adaptarse a diferentes dispositivos (móviles, tablets, ordenadores), ofreciendo una experiencia de usuario óptima en cualquier plataforma.
 
-![blog](https://github.com/withastro/astro/assets/2244813/ff10799f-a816-4703-b967-c78997e8323d)
+## Tecnologías usadas
++ [Astro](https://astro.build) - Framework para desarrollar sitios Web basados en contenido
++ [MDX](https://mdxjs.com) - Permite utilizar contenido en JSX en archivos **Markdown**
++ [React](https://react.dev) - Librería para crear componentes Web
++ [Full Calendar](https://fullcalendar.io) - Calendario que permite mostrar eventos
 
-Features:
+## Contribuciones
+Se agradece cualquier contribución para mejorar el sitio Web, incluyendo el añadir nuevos eventos. Si hay algún problema con el sitio, puedes abrir una issue detallando dicho problema.
 
-- ✅ Minimal styling (make it your own!)
-- ✅ 100/100 Lighthouse performance
-- ✅ SEO-friendly with canonical URLs and OpenGraph data
-- ✅ Sitemap support
-- ✅ RSS Feed support
-- ✅ Markdown & MDX support
+## Licencia
+Este proyecto está distribuído bajo la Licencia del MIT. Lee el archivo `LICENSE` para más información.
 
-## 🚀 Project Structure
-
-Inside of your Astro project, you'll see the following folders and files:
-
-```text
-├── public/
-├── src/
-│   ├── components/
-│   ├── content/
-│   ├── layouts/
-│   └── pages/
-├── astro.config.mjs
-├── README.md
-├── package.json
-└── tsconfig.json
-```
-
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
-
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
-
-The `src/content/` directory contains "collections" of related Markdown and MDX documents. Use `getCollection()` to retrieve posts from `src/content/blog/`, and type-check your frontmatter using an optional schema. See [Astro's Content Collections docs](https://docs.astro.build/en/guides/content-collections/) to learn more.
-
-Any static assets, like images, can be placed in the `public/` directory.
-
-## 🧞 Commands
-
-All commands are run from the root of the project, from a terminal:
-
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Check out [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
-
-## Credit
-
-This theme is based off of the lovely [Bear Blog](https://github.com/HermanMartinus/bearblog/).
+## Contacto
+Si quieres ponerte contacto conmigo, lo puedes hacer en estos enlaces:
++ [Email](mailto:santosalarcon86@gmail.com)
++ [LinkedIn](https://www.linkedin.com/in/santos-alarcon-asensio)
++ [Página Web](https://www.santosalarcon.es)
