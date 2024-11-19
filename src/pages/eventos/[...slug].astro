@@ -1,0 +1,80 @@
+---
+import { getCollection } from "astro:content";
+import MainLayout from "../../layouts/MainLayout.astro";
+import { provinces } from "../../content/provinces";
+
+// @ts-ignore
+export async function getStaticPaths() {
+    return provinces.map((province) => ({
+        params: { slug: province.slug },
+        props: province,
+    }));
+}
+
+const province = Astro.props;
+
+const events = (await getCollection("event"))
+    .filter((event) => event.data.province === province.name)
+    .sort((a, b) => a.data.startDate.valueOf() - b.data.startDate.valueOf());
+import EventItem from "../../components/EventItem.astro";
+---
+
+<MainLayout title=`Eventos Manga - Eventos de ${province.name}`>
+    <section class="eventos">
+        <h1 class="eventos__title">Eventos de {province.name}</h1>
+        <div class="eventos__content">
+            {
+                events.length > 0 ? (
+                    <ul class="eventos__list">
+                        {events.map((event) => (
+                            <li class="eventos__list__item">
+                                <EventItem event={event} />
+                            </li>
+                        ))}
+                    </ul>
+                ) : (
+                    <span>No hay eventos disponibles.</span>
+                )
+            }
+        </div>
+    </section>
+</MainLayout>
+
+<style>
+    .eventos {
+        padding: 3rem;
+        color: var(--foreground);
+        display: flex;
+        flex-direction: column;
+
+        @media (width <= 640px) {
+            padding: 1.25rem;
+            align-items: center;
+            justify-content: center;
+        }
+    }
+
+    .eventos__title {
+        color: var(--foreground);
+        font-size: 2.25rem;
+    }
+
+    .eventos__content {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+
+        @media (width <= 640px) {
+            width: 100%;
+        }
+    }
+
+    .eventos__list {
+        list-style: none;
+        padding: 0;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+        gap: 1.5rem;
+        width: 100%;
+    }
+</style>
