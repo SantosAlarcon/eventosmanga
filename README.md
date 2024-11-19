@@ -6,7 +6,7 @@
 </div>
 
 ## Descripción
-
+![Portada](https://raw.githubusercontent.com/SantosAlarcon/eventosmanga/refs/heads/master/public/Portada.webp)
 Este proyecto tiene como objetivo crear una plataforma en línea completa y actualizada donde los fans del manga y el anime en España puedan encontrar toda la información necesaria sobre eventos relacionados: convenciones, ferias, exposiciones, talleres, etc. La web servirá como punto de encuentro para la comunidad, facilitando la asistencia a eventos y fomentando la interacción entre los aficionados.
 
 ## Características
