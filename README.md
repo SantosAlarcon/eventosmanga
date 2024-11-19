@@ -21,6 +21,8 @@ Este proyecto tiene como objetivo crear una plataforma en línea completa y actu
 + [React](https://react.dev) - Librería para crear componentes Web
 + [Full Calendar](https://fullcalendar.io) - Calendario que permite mostrar eventos
 
+**NOTA ADICIONAL:** Este sitio hace uso de la API View Transitions para las transiciones entre páginas, y se nota en las animaciones de los carteles de eventos.
+
 ## Contribuciones
 Se agradece cualquier contribución para mejorar el sitio Web, incluyendo el añadir nuevos eventos. Si hay algún problema con el sitio, puedes abrir una issue detallando dicho problema.
 
