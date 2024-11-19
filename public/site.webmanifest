@@ -1,0 +1,16 @@
+{
+  "name": "Eventos Manga",
+  "short_name": "Eventos Manga",
+  "description": "Eventos Manga - Todos los eventos de manga y anime en España",
+  "start_url": "/",
+  "icons": [
+    {
+      "src": "/eventosmanga/Logo.webp",
+      "sizes": "144x144",
+      "type": "image/webp"
+    }
+  ],
+  "theme_color": "#FFFFFF",
+  "background_color": "#FFFFFF",
+  "display": "standalone"
+}

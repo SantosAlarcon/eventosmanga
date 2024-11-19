@@ -16,9 +16,14 @@ const { title, description, image = '/blog-placeholder-1.jpg' } = Astro.props;
 
 <!-- Global Metadata -->
 <meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
-<link rel="icon" type="image/svg+xml" href="/eventosmanga/favicon.svg" />
+<meta name="viewport" content="width=device-width,initial-scale=1, viewport-fit=cover" />
+<link rel="icon" type="image/web" sizes="144x144" href="/eventosmanga/Logo.webp" />
 <meta name="generator" content={Astro.generator} />
+<link rel="manifest" href="/eventosmanga/site.webmanifest" />
+
+<!-- Apple -->
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
 
 <!-- Font preloads -->
 <link rel="preload" href="/eventosmanga/fonts/RedHatDisplay-VF.ttf" as="font" type="font/ttf" crossorigin />
