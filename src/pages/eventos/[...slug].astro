@@ -14,7 +14,11 @@ export async function getStaticPaths() {
 const province = Astro.props;
 
 const events = (await getCollection("event"))
-    .filter((event) => event.data.province === province.name)
+    .filter(
+        (event) =>
+            event.data.province === province.name &&
+            new Date(event.data.startDate) >= new Date(),
+    )
     .sort((a, b) => a.data.startDate.valueOf() - b.data.startDate.valueOf());
 import EventItem from "../../components/EventItem.astro";
 ---
