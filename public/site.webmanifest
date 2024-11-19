@@ -2,7 +2,7 @@
   "name": "Eventos Manga",
   "short_name": "Eventos Manga",
   "description": "Eventos Manga - Todos los eventos de manga y anime en España",
-  "start_url": "/",
+  "start_url": "https://santosalarcon.github.io/eventosmanga/",
   "icons": [
     {
       "src": "/eventosmanga/Logo.webp",
