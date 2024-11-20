@@ -86,7 +86,7 @@ const { event } = Astro.props;
 
     .event__item__image {
         width: 100%;
-        height: 15rem;
+        height: 31rem;
         object-fit: cover;
         transition: all 0.2s ease-in-out;
         background-color: var(--foreground);
@@ -96,6 +96,11 @@ const { event } = Astro.props;
             filter: brightness(1.2);
             transform: scale(1.1);
         }
+
+        @media (width <= 512px) {
+            height: auto;
+        }
+        
     }
 
     .event__item__location {

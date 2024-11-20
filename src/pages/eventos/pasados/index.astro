@@ -59,8 +59,12 @@ import EventItem from "../../../components/EventItem.astro";
         list-style: none;
         padding: 0;
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+        grid-template-columns: repeat(4, minmax(20rem, 1fr));
         gap: 1.5rem;
         width: 100%;
+
+        @media (width <= 640px) {
+            grid-template-columns: repeat(1, minmax(20rem, 1fr));
+        }
     }
 </style>
