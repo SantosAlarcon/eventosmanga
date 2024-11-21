@@ -1,0 +1,42 @@
+---
+import { Image } from "astro:assets";
+const {event} = Astro.props;
+---
+
+<button class="add__outlook__calendar__button" aria-label="Añadir al Google Calendar">
+    <Image class="add__outlook__calendar__button__icon" width="20" height="20" src="/eventosmanga/icons/outlook.svg" alt="Icono de Google Calendar" />
+    Añadir al Outlook Calendar
+</button>
+
+<style>
+    .add__outlook__calendar__button {
+        background-color: #339;
+        border: none;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        color: var(--foreground);
+        gap: .5rem;
+        padding: .5rem .75rem;
+        border-radius: .5rem;
+        font-weight: bold;
+        font-size: .8rem;
+        margin: 1rem auto auto auto;
+    }
+
+    .add__outlook__calendar__button__icon {
+        width: 20px;
+        height: 20px;
+        margin-right: 5px;
+        border-radius: 0;
+    }
+}
+</style>
+
+<script define:vars={{ event }}>
+    const button = document.querySelector(".add__outlook__calendar__button");
+
+    button.addEventListener("click", () => {
+        window.open(`https://outlook.live.com/calendar/action/compose?rru=addevent&startdt=${event.data.startDate.replace("Z","")}&enddt=${event.data.endDate.replace("Z","")}&subject=${event.data.title}&location=${event.data.location}&body=${event.data.description}`)
+    })
+</script>

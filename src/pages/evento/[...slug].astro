@@ -16,6 +16,7 @@ type Props = CollectionEntry<"event">;
 const event = Astro.props;
 const { Content } = await event.render();
 import AddToGoogleCalendar from "../../components/AddToGoogleCalendar.astro";
+import AddToOutlookCalendar from "../../components/AddToOutlookCalendar.astro";
 ---
 
 <MainLayout title={`Eventos Manga - ${event.data.title}`}>
@@ -116,7 +117,10 @@ import AddToGoogleCalendar from "../../components/AddToGoogleCalendar.astro";
 
         <div class="event__info__content">
             <Content />
-            <AddToGoogleCalendar event={event} />
+            <div class="event__info__calendar__buttons">
+                <AddToGoogleCalendar event={event} />
+                <AddToOutlookCalendar event={event} />
+            </div>
         </div>
     </div>
 </MainLayout>
@@ -256,6 +260,20 @@ import AddToGoogleCalendar from "../../components/AddToGoogleCalendar.astro";
     .event__info__twitter__icon {
         width: 1.75rem;
         height: 1.75rem;
+    }
+
+    .event__info__calendar__buttons {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 1rem;
+        width: 40%;
+        margin: 0 auto;
+
+        @media (width <= 640px) {
+            width: 100%;
+            flex-direction: column;
+        }
     }
 
     @media (width <= 512px) {
