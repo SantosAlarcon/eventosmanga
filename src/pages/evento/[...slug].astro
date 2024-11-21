@@ -132,6 +132,17 @@ import AddToOutlookCalendar from "../../components/AddToOutlookCalendar.astro";
         }
     }
 
+    table, th, td {
+        border-collapse: collapse;
+        border: 1px solid var(--foreground);
+        padding: 0.5rem;
+    }
+    th, td {
+        @media (width <= 512px) {
+            font-size: 0.9rem;
+        }
+    }
+
     h1 {
         margin-bottom: 1rem;
     }
