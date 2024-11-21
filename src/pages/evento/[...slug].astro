@@ -15,6 +15,7 @@ type Props = CollectionEntry<"event">;
 
 const event = Astro.props;
 const { Content } = await event.render();
+import AddToGoogleCalendar from "../../components/AddToGoogleCalendar.astro";
 ---
 
 <MainLayout title={`Eventos Manga - ${event.data.title}`}>
@@ -115,6 +116,7 @@ const { Content } = await event.render();
 
         <div class="event__info__content">
             <Content />
+            <AddToGoogleCalendar event={event} />
         </div>
     </div>
 </MainLayout>
