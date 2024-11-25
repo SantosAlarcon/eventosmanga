@@ -48,8 +48,13 @@ a {
     font-size: 1.3rem !important;
 }
 
+.fc-h-event {
+    border: none;
+}
+
 @media (width <= 720px) {
     .fc-toolbar-chunk:nth-child(3) {
         display: none;
     }
 }
+

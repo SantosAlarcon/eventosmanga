@@ -7,6 +7,7 @@ type CalendarEvent = {
     end: Date;
     location: string;
     url: string;
+    backgroundColor?: string;
 };
 
 export const GET: APIRoute = async () => {
@@ -21,6 +22,7 @@ export const GET: APIRoute = async () => {
             end: new Date(event.data.endDate),
             location: event.data.location,
             url: event.data.url,
+	    backgroundColor: event.data.tagColor
         });
     });
 

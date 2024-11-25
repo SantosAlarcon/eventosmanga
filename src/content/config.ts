@@ -29,6 +29,7 @@ const event = defineCollection({
         url: z.string(),
         price: z.number(),
         twitterProfile: z.string().optional(),
+	tagColor: z.string().optional()
     }),
 });
 
