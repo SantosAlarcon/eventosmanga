@@ -1,0 +1,12 @@
+---
+const date = new Date().toLocaleString("es", {
+    day: "numeric",
+    month: "long",
+    year: "numeric",
+    hour: "numeric",
+    minute: "numeric",
+});
+---
+<div class="clock" define:vars={{date}}>
+    {date}
+</div>
