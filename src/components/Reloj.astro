@@ -1,0 +1,26 @@
+---
+---
+<div class="clock">
+</div>
+
+<script is:inline>
+    document.addEventListener("DOMContentLoaded", function () {
+        const clock = document.querySelector(".clock");
+        const date = new Date();
+        const options = {
+            day: "numeric",
+            month: "long",
+            year: "numeric",
+            timeZoneName: "short",
+            hour: "numeric",
+            minute: "numeric",
+            second: "numeric",
+        };
+
+        const reloj = () => {
+            date.setTime(date.getTime() + 1000);
+            clock.innerHTML = date.toLocaleString("es-ES", options);
+        };
+        const timer = setInterval(reloj, 1000);
+    });
+</script>
