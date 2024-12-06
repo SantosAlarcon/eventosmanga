@@ -1,22 +1,23 @@
 ---
-import { type CollectionEntry, getCollection } from "astro:content";
+import { getCollection, render } from "astro:content";
 import MainLayout from "../../layouts/MainLayout.astro";
-import { Image } from "astro:assets";
 import FormattedDate from "../../components/FormattedDate.astro";
+import AddToGoogleCalendar from "../../components/AddToGoogleCalendar.astro";
+import AddToOutlookCalendar from "../../components/AddToOutlookCalendar.astro";
+
+import { Image } from "astro:assets";
 
 export async function getStaticPaths() {
     const events = await getCollection("event");
     return events.map((event) => ({
-        params: { slug: event.slug },
-        props: event,
+        params: { id: event.id },
+        props: { event },
     }));
 }
-type Props = CollectionEntry<"event">;
 
-const event = Astro.props;
-const { Content } = await event.render();
-import AddToGoogleCalendar from "../../components/AddToGoogleCalendar.astro";
-import AddToOutlookCalendar from "../../components/AddToOutlookCalendar.astro";
+
+const { event } = Astro.props;
+const { Content } = await render(event);
 ---
 
 <MainLayout title={`Eventos Manga - ${event.data.title}`}>
@@ -26,7 +27,7 @@ import AddToOutlookCalendar from "../../components/AddToOutlookCalendar.astro";
                 <Image
                     src={event.data.heroImage}
                     class="event__info__cover__image"
-                    transition:name={`${event.slug}-cover`}
+                    transition:name={`cover-${event.id}`}
                     alt={`Cartel de ${event.data.title}`}
                     loading="lazy"
                     width="640"
@@ -49,7 +50,7 @@ import AddToOutlookCalendar from "../../components/AddToOutlookCalendar.astro";
                             <FormattedDate date={event.data.startDate} />
                         ) : (
                             <>
-                                <FormattedDate date={event.data.startDate} /> - 
+                                <FormattedDate date={event.data.startDate} /> -
                                 <FormattedDate date={event.data.endDate} />
                             </>
                         )
@@ -132,12 +133,15 @@ import AddToOutlookCalendar from "../../components/AddToOutlookCalendar.astro";
         }
     }
 
-    table, th, td {
+    table,
+    th,
+    td {
         border-collapse: collapse;
         border: 1px solid var(--foreground);
         padding: 0.5rem;
     }
-    th, td {
+    th,
+    td {
         @media (width <= 512px) {
             font-size: 0.9rem;
         }

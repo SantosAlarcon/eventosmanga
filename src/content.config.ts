@@ -1,21 +1,8 @@
 import { defineCollection, z } from "astro:content";
-
-const blog = defineCollection({
-    type: "content",
-    // Type-check frontmatter using a schema
-    schema: z.object({
-        title: z.string(),
-        description: z.string(),
-        // Transform string to Date object
-        pubDate: z.coerce.date(),
-        updatedDate: z.coerce.date().optional(),
-        heroImage: z.string().optional(),
-    }),
-});
+import { glob } from "astro/loaders";
 
 const event = defineCollection({
-    type: "content",
-    // Datos de un evento de manga y anime
+    loader: glob({ base: "./src/content/event", pattern: "**/*.mdx" }),
     schema: z.object({
         title: z.string(),
         description: z.string(),
@@ -29,8 +16,8 @@ const event = defineCollection({
         url: z.string(),
         price: z.number(),
         twitterProfile: z.string().optional(),
-	tagColor: z.string().optional()
+        tagColor: z.string().optional(),
     }),
 });
 
-export const collections = { blog, event };
+export const collections = { event };

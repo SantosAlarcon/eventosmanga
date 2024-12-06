@@ -4,7 +4,7 @@ import FormattedDate from "./FormattedDate.astro";
 const { event } = Astro.props;
 ---
 
-<a href={`/eventosmanga/evento/${event.slug}/`}>
+<a href={`/eventosmanga/evento/${event.id}/`}>
     <article class="event__item">
         <div class="event__item__cover__container">
             <Image
@@ -12,7 +12,7 @@ const { event } = Astro.props;
                 src={event.data.heroImage}
                 alt={event.data.title}
                 loading="lazy"
-                transition:name={`${event.slug}-cover`}
+                transition:name={`cover-${event.id}`}
                 width="640"
                 height="200"
             />
@@ -37,15 +37,17 @@ const { event } = Astro.props;
                     width="24"
                     height="24"
                 />
-                {new Date(event.data.startDate).getTime() ===
-                new Date(event.data.endDate).getTime() ? (
-                <FormattedDate date={event.data.startDate} />
-                ) : (
-                    <>
-                        <FormattedDate date={event.data.startDate} /> - 
-                        <FormattedDate date={event.data.endDate} />
-                    </>
-                )}
+                {
+                    new Date(event.data.startDate).getTime() ===
+                    new Date(event.data.endDate).getTime() ? (
+                        <FormattedDate date={event.data.startDate} />
+                    ) : (
+                        <>
+                            <FormattedDate date={event.data.startDate} /> -
+                            <FormattedDate date={event.data.endDate} />
+                        </>
+                    )
+                }
             </p>
         </div>
     </article>
@@ -100,7 +102,6 @@ const { event } = Astro.props;
         @media (width <= 512px) {
             height: auto;
         }
-        
     }
 
     .event__item__location {

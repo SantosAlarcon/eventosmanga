@@ -2,7 +2,6 @@
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import BaseHead from "../components/BaseHead.astro";
-import { ViewTransitions } from "astro:transitions";
 const { title, description } = Astro.props;
 ---
 
@@ -14,6 +13,5 @@ const { title, description } = Astro.props;
         <Header />
         <slot />
         <Footer />
-        <ViewTransitions />
     </body>
 </html>

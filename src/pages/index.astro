@@ -1,11 +1,11 @@
 ---
+import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
+import { getCollection } from "astro:content";
 import BaseHead from "../components/BaseHead.astro";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
-import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
-import { ViewTransitions } from "astro:transitions";
 import EventItem from "../components/EventItem.astro";
-import { getCollection } from "astro:content";
+
 const events = (await getCollection("event"))
     .filter((event) => new Date(event.data.startDate) >= new Date())
     .splice(0, 9)
@@ -52,7 +52,6 @@ const events = (await getCollection("event"))
             </section>
         </main>
         <Footer />
-        <ViewTransitions />
     </body><style>
         p {
             padding: 1rem 0;

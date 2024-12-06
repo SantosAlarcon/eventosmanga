@@ -33,10 +33,10 @@ const endDate = convertDateFormat(event.data.endDate);
         margin-right: 5px;
         border-radius: 0;
     }
-}
 </style>
 
-<script define:vars={{ event, startDate, endDate }}>
+<script is:inline define:vars={{ event, startDate, endDate }}>
+    // @ts-nocheck
     const button = document.querySelector(".add__google__calendar__button");
 
     button.addEventListener("click", () => {
