@@ -23,6 +23,8 @@ Este proyecto tiene como objetivo crear una plataforma en línea completa y actu
 
 **NOTA ADICIONAL:** Este sitio hace uso de la API View Transitions para las transiciones entre páginas, y se nota en las animaciones de los carteles de eventos.
 
+**NOTA ADICIONAL 2:** Este sitio está actualizado a **Astro 5**, y hace uso de las [**Content Collections**](https://docs.astro.build/en/guides/content-collections/), la nueva API para cargar los eventos desde los **archivos Markdown**.
+
 ## Contribuciones
 Se agradece cualquier contribución para mejorar el sitio Web, incluyendo el añadir nuevos eventos. Si hay algún problema con el sitio, puedes abrir una issue detallando dicho problema.
 
