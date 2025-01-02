@@ -14,7 +14,7 @@ const Calendar = () => {
 	const [mounted, setMounted] = useState(false);
 
 	const fetchEvents = async () => {
-		const events = await fetch("/eventosmanga/api/event").then((res) =>
+		const events = await fetch("/api/event").then((res) =>
 			res.json(),
 		);
 		setEvents(events);
