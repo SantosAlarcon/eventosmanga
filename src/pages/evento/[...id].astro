@@ -302,3 +302,30 @@ const { Content } = await render(event);
         }
     }
 </style>
+
+<script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Event",
+        "name": `${event.data.title}`,
+        "description": `${event.data.description}`,
+        "startDate": `${event.data.startDate}`,
+        "endDate": `${event.data.endDate}`,
+        "location": {
+            "@type": "Place",
+            "name": `${event.data.location}`,
+            "address": {
+                "@type": "PostalAddress",
+                "addressCountry": `${event.data.province}`
+            }
+        },
+        "url": `${event.data.url}`,
+        "image": `${event.data.heroImage}`,
+        "offers": {
+            "@type": "Offer",
+            "url": `${event.data.url}`,
+            "price": `${event.data.price}`,
+            "priceCurrency": "EUR"
+        }
+    }
+</script>
