@@ -8,8 +8,8 @@ import EventItem from "../components/EventItem.astro";
 
 const events = (await getCollection("event"))
     .filter((event) => new Date(event.data.startDate) >= new Date())
-    .splice(0, 9)
-    .sort((a, b) => a.data.startDate.valueOf() - b.data.startDate.valueOf());
+    .sort((a, b) => a.data.startDate.valueOf() - b.data.startDate.valueOf())
+    .splice(0, 9);
 ---
 
 <!doctype html>
