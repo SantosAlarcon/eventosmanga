@@ -67,6 +67,10 @@ const events = (await getCollection("event"))
             min-width: 100%;
             background-color: var(--red);
             background-blend-mode: overlay;
+
+            @media (width <= 512px) {
+                padding: 2rem;
+            }
         }
 
         .home__hero__title,
