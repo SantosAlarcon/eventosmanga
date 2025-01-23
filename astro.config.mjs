@@ -1,17 +1,17 @@
-import { defineConfig } from 'astro/config';
-import mdx from '@astrojs/mdx';
-import react from "@astrojs/react"
-import sitemap from '@astrojs/sitemap';
+import { defineConfig } from "astro/config";
+import mdx from "@astrojs/mdx";
+import react from "@astrojs/react";
+import sitemap from "@astrojs/sitemap";
 
 // https://astro.build/config
 export default defineConfig({
-    site: 'https://www.eventosmanga.es',
+    site: "https://www.eventosmanga.es",
     prefetch: {
-        prefetchAll: true
+        prefetchAll: true,
     },
     //base: "/eventosmanga/",
     image: {
-        remotePatterns: [{protocol: "https"}]
+        remotePatterns: [{ protocol: "https" }],
     },
-    integrations: [react(), mdx({optimize: true}), sitemap()],
+    integrations: [react(), mdx({ optimize: true }), sitemap()],
 });
