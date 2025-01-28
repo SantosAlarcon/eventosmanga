@@ -55,7 +55,7 @@ const eventJSONLd = {
             </div>
             <div class="event__info__data">
                 <h1 class="event__info__title">{event.data.title}</h1>
-                <p class="event__info__date">
+                <p class="event__info__data__item">
                     <Image
                         src="/icons/calendar.svg"
                         alt="calendar-icon"
@@ -69,13 +69,12 @@ const eventJSONLd = {
                             <FormattedDate date={event.data.startDate} />
                         ) : (
                             <>
-                                <FormattedDate date={event.data.startDate} /> -
-                                <FormattedDate date={event.data.endDate} />
+                                <FormattedDate date={event.data.startDate} />-<FormattedDate date={event.data.endDate} />
                             </>
                         )
                     }
                 </p>
-                <p class="event__info__schedule">
+                <p class="event__info__data__item">
                     <Image
                         src="/icons/clock.svg"
                         alt="clock-icon"
@@ -85,7 +84,7 @@ const eventJSONLd = {
                     />
                     {event.data.startTime} - {event.data.endTime}
                 </p>
-                <p class="event__info__link">
+                <p class="event__info__data__item">
                     <Image
                         src="/icons/link.svg"
                         alt="link-icon"
@@ -101,7 +100,7 @@ const eventJSONLd = {
                         {event.data.url}
                     </a>
                 </p>
-                <p class="event__info__location">
+                <p class="event__info__data__item">
                     <Image
                         src="/icons/location.svg"
                         alt="location-icon"
@@ -111,7 +110,7 @@ const eventJSONLd = {
                     />
                     {event.data.location} - ({event.data.province})
                 </p>
-<p class="event__info__price">
+                <p class="event__info__data__item">
                     <Image
                         src="/icons/price.svg"
                         alt="price-icon"
@@ -235,6 +234,12 @@ const eventJSONLd = {
         border-radius: 10px;
     }
 
+    .event__info__data {
+        display: flex;
+        flex-direction: column;
+        gap: 0.25rem;
+    }
+
     .event__info__title {
         font-size: 2rem;
     }
@@ -244,6 +249,19 @@ const eventJSONLd = {
         height: 1rem;
         filter: invert(1);
         border-radius: 0;
+    }
+
+    .event__info__data__item {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        font-size: 0.9rem;
+        color: var(--foreground);
+        margin-bottom: 0;
+
+        > a {
+            color: inherit;
+        }
     }
 
     .event__info__location {
@@ -292,7 +310,7 @@ const eventJSONLd = {
         font-size: 0.9rem;
     }
 
-.event__info__price {
+    .event__info__price {
         display: flex;
         align-items: center;
         gap: 0.5rem;
