@@ -111,6 +111,16 @@ const eventJSONLd = {
                     />
                     {event.data.location} - ({event.data.province})
                 </p>
+<p class="event__info__price">
+                    <Image
+                        src="/icons/price.svg"
+                        alt="price-icon"
+                        class="event__info__icon"
+                        width="24"
+                        height="24"
+                    />
+                    {event.data.price} €
+                </p>
                 {
                     event.data.twitterProfile && (
                         <p class="event__info__twitter">
