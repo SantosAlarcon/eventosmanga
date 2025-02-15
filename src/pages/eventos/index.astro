@@ -3,7 +3,7 @@ import { getCollection } from "astro:content";
 import MainLayout from "../../layouts/MainLayout.astro";
 
 // @ts-ignore
-const events = (await getCollection("event")).filter((event) => new Date(event.data.startDate) >= new Date()).sort(
+const events = (await getCollection("event")).filter((event) => new Date(event.data.endDate) >= new Date()).sort(
     (a, b) => a.data.startDate.valueOf() - b.data.startDate.valueOf(),
 );
 import EventItem from "../../components/EventItem.astro";
