@@ -211,14 +211,15 @@ const eventJSONLd = {
         display: flex;
         flex-direction: column;
         gap: 2rem;
+        
+        @media (width <= 861px) {
+            padding: 3rem;
+        }
 
         @media (width <= 512px) {
             padding: 2rem;
         }
 
-        @media (width <= 768px) {
-            padding: 3rem;
-        }
     }
 
     .event__info__header {
@@ -288,6 +289,12 @@ const eventJSONLd = {
         height: 1.75rem;
     }
 
+    .event__info__content {
+        & h3 {
+            margin-top: 3rem;
+        }
+    }
+
     .event__info__calendar__buttons {
         display: flex;
         justify-content: center;
@@ -296,8 +303,11 @@ const eventJSONLd = {
         width: 40%;
         margin: 0 auto;
 
-        @media (width <= 768px) {
+        @media (width <= 861px) {
             width: 100%;
+        }
+
+        @media (width <= 512px) {
             flex-direction: column;
         }
     }
