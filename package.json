@@ -11,20 +11,20 @@
   },
   "dependencies": {
     "@astrojs/check": "^0.9.4",
-    "@astrojs/mdx": "^4.0.8",
-    "@astrojs/react": "^4.2.0",
+    "@astrojs/mdx": "^4.1.0",
+    "@astrojs/react": "^4.2.1",
     "@astrojs/rss": "^4.0.11",
     "@astrojs/sitemap": "^3.2.1",
     "@fullcalendar/core": "^6.1.15",
     "@fullcalendar/list": "^6.1.15",
     "@fullcalendar/react": "^6.1.15",
     "@fullcalendar/timegrid": "^6.1.15",
-    "astro": "^5.3.1",
+    "astro": "^5.4.1",
     "fullcalendar": "^6.1.15",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
-    "typescript": "^5.7.3"
+    "typescript": "^5.8.2"
   },
-  "packageManager": "pnpm@10.4.1"
+  "packageManager": "pnpm@10.5.2"
 }
 
