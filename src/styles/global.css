@@ -112,7 +112,7 @@ main {
     margin: auto;
     padding: 3em 1em;
 
-    @media (width <= 512px) {
+    @media (width <= 861px) {
         max-width: calc(100% - 1.5rem);
     }
 }
