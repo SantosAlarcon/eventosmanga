@@ -14,8 +14,8 @@ export default defineConfig({
         remotePatterns: [{ protocol: "https" }],
     },
     integrations: [react(), mdx({ optimize: true }), sitemap({
-	changefreq: "daily",
-	priority: 0.8,
-	lastmod: new Date(),
+        changefreq: "daily",
+        priority: 0.8,
+        lastmod: new Date(),
     })],
 });
