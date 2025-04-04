@@ -34,98 +34,142 @@ const events = (await getCollection("event"))
                 </p>
                 <h2 class="home__hero__cta">
                     ¡Mantente informado y únete a la comunidad otaku!
-                </h3>
+                </h2>
             </section>
             <section class="home__events">
                 <h3 class="home__events__title">Próximos eventos</h3>
-                <p>Desliza el dedo en horizontal para navegar por los eventos (<b>versión de escritorio/tablets</b>). Si quieres ver el listado completo de eventos, haz clíc en el apartado de <b>Eventos</b> en la parte superior.</p>
-                <div class="home__events__list__container">
-                    <ul class="home__events__list">
-                        {
-                            events.map((event) => (
-                                <li class="home__events__list__item">
-                                    <EventItem event={event} />
-                                </li>
-                            ))
-                        }
-                    </ul>
-                </div>
+                <p>
+                    Desliza el dedo en horizontal para navegar por los eventos (<b
+                        >versión de escritorio/tablets</b
+                    >). Si quieres ver el listado completo de eventos, haz clíc
+                    en el apartado de <b>Eventos</b> en la parte superior.
+                </p>
+                <ul
+                    class="home__events__list home__events__list__carousel__buttons"
+                >
+                    {
+                        events.map((event) => (
+                            <li class="home__events__list__item">
+                                <EventItem event={event} />
+                            </li>
+                        ))
+                    }
+                </ul>
             </section>
         </main>
         <Footer />
-    </body><style>
-        p {
-            padding: 1rem 0;
-        }
-
-        .home__container {
-            display: flex;
-            flex-direction: column;
-            gap: 3rem;
-            background: url("/Fondo.webp") no-repeat center center;
-            background-size: cover;
-            padding: 3rem;
-            min-width: 100%;
-            background-color: var(--red);
-            background-blend-mode: overlay;
-
-            @media (width <= 512px) {
-                padding: 2rem;
+        <style>
+            p {
+                padding: 1rem 0;
             }
-        }
 
-        .home__hero__title,
-        .home__hero__cta {
-            text-align: center;
-            
-            @media (width <= 512px) {
-                font-size: clamp(1rem, 5vw, 3rem);
-            }
-        }
-
-        .home__hero__description {
-            text-align: center;
-
-            @media (width <= 512px) {
-                font-size: clamp(0.7rem, 5vw, 1rem);
-            }
-        }
-
-        .home__events__title {
-            @media (width <= 512px) {
-                font-size: clamp(1rem, 5vw, 3rem);
-                text-align: center;
-            }
-        }
-
-        .home__events__list__container {
-            overflow-x: scroll;
-
-            @media (width <= 512px) {
-                overflow: auto;
+            .home__container {
                 display: flex;
                 flex-direction: column;
+                gap: 3rem;
+                background: url("/Fondo.webp") no-repeat center center;
+                background-size: cover;
+                padding: 3rem;
+                min-width: 100%;
+                background-color: var(--red);
+                background-blend-mode: overlay;
+
+                @media (width <= 512px) {
+                    padding: 2rem;
+                }
             }
-        }
 
-        .home__events__list {
-            display: flex;
-            list-style: none;
-            padding: 0;
-            width: max-content;
+            .home__hero__title,
+            .home__hero__cta {
+                text-align: center;
 
-            @media (width <= 512px) {
-                flex-direction: column;
+                @media (width <= 512px) {
+                    font-size: clamp(1rem, 5vw, 3rem);
+                }
+            }
+
+            .home__hero__description {
+                text-align: center;
+
+                @media (width <= 512px) {
+                    font-size: clamp(0.7rem, 5vw, 1rem);
+                }
+            }
+
+            .home__events__title {
+                @media (width <= 512px) {
+                    font-size: clamp(1rem, 5vw, 3rem);
+                    text-align: center;
+                }
+            }
+
+            .home__events__list {
+                overflow-x: scroll;
+                position: relative;
+                anchor-name: --carousel;
+                scroll-behavior: smooth;
+                display: flex;
+                list-style: none;
+                padding: 0;
                 width: 100%;
-            }
-        }
+                overscroll-behavior-x: contain;
+                scroll-snap-type: x mandatory;
 
-        .home__events__list__item {
-            width: 380px;
-
-            @media (width <= 512px) {
-                width: 100%;
+                @media (width <= 512px) {
+                    overflow: auto;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
+                }
             }
-        }
-    </style>
+
+            .home__events__list__item {
+                width: 380px;
+
+                @media (width <= 512px) {
+                    width: 100%;
+                }
+            }
+
+            .home__events__list__carousel__buttons {
+                &::scroll-button(*) {
+                    position: fixed;
+                    position-anchor: --carousel;
+                    border-radius: 100%;
+                    font-size: 2rem;
+                    aspect-ratio: 1;
+                    background-color: #eee2;
+                    cursor: pointer;
+                    z-index: 2;
+                    display: grid;
+                    place-items: center;
+                    padding: 0 1rem;
+                    margin: -1.5rem;
+                    color: #eeec;
+                    border: 1px solid #eeea;
+                    transition: all 0.2s ease-in-out;
+                    
+                    @media (width <= 512px) {
+                        display: none;
+                    }
+                }
+
+                &::scroll-button(*):is(:disabled) {
+                    border: 1px solid #eee2;
+                    color: #eee6;
+                }
+
+                &::scroll-button(left) {
+                    position-area: inline-start center;
+                    content: "◀" / "Moverse a la izquierda";
+                }
+
+                &::scroll-button(right) {
+                    position-area: inline-end center;
+                    content: "▶" / "Moverse a la derecha";
+                }
+            }
+        </style>
+    </body>
 </html>
