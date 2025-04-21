@@ -7,6 +7,12 @@ import AddToOutlookCalendar from "../../components/AddToOutlookCalendar.astro";
 
 import { Image } from "astro:assets";
 
+import LocationIcon from "../../../public/icons/location.svg";
+import CalendarIcon from "../../../public/icons/calendar.svg";
+import ClockIcon from "../../../public/icons/clock.svg";
+import LinkIcon from "../../../public/icons/link.svg";
+import PriceIcon from "../../../public/icons/price.svg";
+
 export async function getStaticPaths() {
     const events = await getCollection("event");
     return events.map((event) => ({
@@ -58,13 +64,7 @@ const eventJSONLd = {
             <div class="event__info__data">
                 <h1 class="event__info__title">{event.data.title}</h1>
                 <p class="event__info__data__item">
-                    <Image
-                        src="/icons/calendar.svg"
-                        alt="calendar-icon"
-                        class="event__info__icon"
-                        width="24"
-                        height="24"
-                    />
+                    <CalendarIcon width={24} height={24} class="event__info__icon" color="#eee" />
                     {
                         new Date(event.data.startDate).getTime() ===
                         new Date(event.data.endDate).getTime() ? (
@@ -77,23 +77,11 @@ const eventJSONLd = {
                     }
                 </p>
                 <p class="event__info__data__item">
-                    <Image
-                        src="/icons/clock.svg"
-                        alt="clock-icon"
-                        class="event__info__icon"
-                        width="24"
-                        height="24"
-                    />
+                    <ClockIcon width={24} height={24} class="event__info__icon" color="#eee" />
                     {event.data.startTime} - {event.data.endTime}
                 </p>
                 <p class="event__info__data__item">
-                    <Image
-                        src="/icons/link.svg"
-                        alt="link-icon"
-                        class="event__info__icon"
-                        width="24"
-                        height="24"
-                    />
+                    <LinkIcon width={24} height={24} class="event__info__icon" color="#eee" />
                     <a
                         href={event.data.url}
                         target="_blank"
@@ -103,23 +91,11 @@ const eventJSONLd = {
                     </a>
                 </p>
                 <p class="event__info__data__item">
-                    <Image
-                        src="/icons/location.svg"
-                        alt="location-icon"
-                        class="event__info__icon"
-                        width="24"
-                        height="24"
-                    />
+                    <LocationIcon width={24} height={24} class="event__info__icon" color="#eee" />
                     {event.data.location} - ({event.data.province})
                 </p>
                 <p class="event__info__data__item">
-                    <Image
-                        src="/icons/price.svg"
-                        alt="price-icon"
-                        class="event__info__icon"
-                        width="24"
-                        height="24"
-                    />
+                    <PriceIcon width={24} height={24} class="event__info__icon" color="#eee" />
                     {event.data.price > 0 ? `${event.data.price} €` : "Gratis"}
                 </p>
                 {
@@ -254,7 +230,6 @@ const eventJSONLd = {
     .event__info__icon {
         width: 1rem;
         height: 1rem;
-        filter: invert(1);
         border-radius: 0;
     }
 

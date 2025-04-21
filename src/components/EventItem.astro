@@ -2,6 +2,8 @@
 import { Image } from "astro:assets";
 import FormattedDate from "./FormattedDate.astro";
 const { event } = Astro.props;
+import LocationIcon from "../../public/icons/location.svg";
+import CalendarIcon from "../../public/icons/calendar.svg";
 ---
 
 <a href={`/evento/${event.id}/`}>
@@ -20,23 +22,11 @@ const { event } = Astro.props;
         <h2 class="event__item__title">{event.data.title}</h2>
         <div class="event__item__footer">
             <p class="event__item__location">
-                <Image
-                    class="event__item__location__icon"
-                    src="/icons/location.svg"
-                    alt=""
-                    width="24"
-                    height="24"
-                />
+                <LocationIcon width={24} height={24} class="event__item__location__icon" color="#eee" />
                 {event.data.province}
             </p>
             <p class="event__item__date">
-                <Image
-                    class="event__item__date__icon"
-                    src="/icons/calendar.svg"
-                    alt=""
-                    width="24"
-                    height="24"
-                />
+                <CalendarIcon width={24} height={24} class="event__item__date__icon" color="#eee" />
                 {
                     new Date(event.data.startDate).getTime() ===
                     new Date(event.data.endDate).getTime() ? (
@@ -119,7 +109,6 @@ const { event } = Astro.props;
     .event__item__location__icon {
         width: 1rem;
         height: 1rem;
-        filter: invert(1);
         border-radius: 0;
     }
 
@@ -134,7 +123,6 @@ const { event } = Astro.props;
     .event__item__date__icon {
         width: 1rem;
         height: 1rem;
-        filter: invert(1);
         border-radius: 0;
     }
 </style>

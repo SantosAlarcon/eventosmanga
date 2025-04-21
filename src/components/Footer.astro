@@ -1,7 +1,7 @@
 ---
 const today = new Date();
 import { provinces } from "../content/provinces";
-import Reloj from "./Reloj.astro"
+import Reloj from "./Reloj.astro";
 ---
 
 <footer>
@@ -9,9 +9,18 @@ import Reloj from "./Reloj.astro"
         <h3 class="footer__provinces__title">Eventos por provincia</h3>
 
         <ul class="footer__provinces__list">
-            {provinces.map(province => (
-                <li><a class="footer__provinces__list__item" href={`/eventos/${province.slug}`}>{province.name}</a></li> 
-            ))}
+            {
+                provinces.map((province) => (
+                    <li>
+                        <a
+                            class="footer__provinces__list__item"
+                            href={`/eventos/${province.slug}`}
+                        >
+                            {province.name}
+                        </a>
+                    </li>
+                ))
+            }
         </ul>
     </div>
     <div class="footer__copyright">
@@ -20,8 +29,13 @@ import Reloj from "./Reloj.astro"
                 href="https://www.santosalarcon.es"
                 aria-label="Visita la página de Santos Alarcón Asensio"
                 target="_blank"><b>Santos Alarcón Asensio</b></a
-            >. Todos los derechos reservados.
-- <a href="/aviso-legal" aria-label="Aviso legal">Aviso Legal</a> - <a href="/politica-de-privacidad" aria-label="Política de privacidad">Política de Privacidad</a>
+            >. Todos los derechos reservados. - <a
+                href="/aviso-legal"
+                aria-label="Aviso legal">Aviso Legal</a
+            > - <a
+                href="/politica-de-privacidad"
+                aria-label="Política de privacidad">Política de Privacidad</a
+            >
         </div>
         <div class="social-links">
             <a
@@ -138,7 +152,7 @@ import Reloj from "./Reloj.astro"
         list-style: none;
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-        gap: .4rem;
+        gap: 0.4rem;
         padding-bottom: 5rem;
 
         & li {

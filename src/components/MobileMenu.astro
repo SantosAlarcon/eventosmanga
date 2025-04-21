@@ -1,29 +1,19 @@
 ---
-import { Image } from "astro:assets";
+import EventIcon from "../../public/icons/event.svg";
+import CalendarIcon from "../../public/icons/calendar.svg";
+import AddIcon from "../../public/icons/add.svg";
 ---
 
 <nav class="mobile__nav">
     <div class="mobile__nav__link">
         <a href="/eventos" aria-label="Eventos">
-            <Image
-                class="mobile__nav__link__icon"
-                src="/icons/event.svg"
-                alt=""
-                width="40"
-                height="40"
-            />
+            <EventIcon width={30} height={30} color="#eee" />
             <span>Eventos</span>
         </a>
     </div>
     <div class="mobile__nav__link">
         <a href="/calendario" aria-label="Calendario">
-            <Image
-                class="mobile__nav__link__icon"
-                src="/icons/event-calendar.svg"
-                alt=""
-                width="40"
-                height="40"
-            />
+            <CalendarIcon width={30} height={30} color="#eee" />
             <span>Calendario</span>
         </a>
     </div>
@@ -33,13 +23,7 @@ import { Image } from "astro:assets";
             target="_blank"
             aria-label="Nuevo evento"
         >
-            <Image
-                class="mobile__nav__link__icon"
-                src="/icons/add.svg"
-                alt=""
-                width="40"
-                height="40"
-            />
+            <AddIcon width={30} height={30} color="#eee" />
             <span>Nuevo evento</span>
         </a>
     </div>
@@ -49,7 +33,6 @@ import { Image } from "astro:assets";
         border: 1px solid var(--foreground);
         border-radius: 3rem;
         display: none;
-        height: 72px;
         padding: 1rem;
         position: fixed;
         bottom: 1rem;
@@ -78,13 +61,6 @@ import { Image } from "astro:assets";
             align-items: center;
             justify-content: center;
         }
-    }
-
-    .mobile__nav__link__icon {
-        width: 1.5rem;
-        height: 1.5rem;
-        filter: invert(1);
-        border-radius: 0;
     }
 
     .mobile__nav__button {
