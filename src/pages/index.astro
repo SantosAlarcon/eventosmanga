@@ -115,7 +115,7 @@ const events = (await getCollection("event"))
                 overscroll-behavior-x: contain;
                 scroll-snap-type: x mandatory;
 
-                @media (width <= 512px) {
+                @media (width <= 640px) {
                     overflow: auto;
                     display: flex;
                     flex-direction: column;
@@ -127,7 +127,7 @@ const events = (await getCollection("event"))
             .home__events__list__item {
                 width: 380px;
 
-                @media (width <= 512px) {
+                @media (width <= 640px) {
                     width: 100%;
                 }
             }

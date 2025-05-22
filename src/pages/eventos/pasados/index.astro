@@ -63,11 +63,15 @@ import EventItem from "../../../components/EventItem.astro";
         gap: 1.5rem;
         width: 100%;
 
-        @media (width <= 861px) {
+        @media (width <= 1600px) {
+            grid-template-columns: repeat(3, minmax(20rem, 1fr));
+        }
+
+        @media (width <= 1150px) {
             grid-template-columns: repeat(2, minmax(20rem, 1fr));
         }
 
-        @media (width <= 512px) {
+        @media (width <= 790px) {
             grid-template-columns: repeat(1, minmax(20rem, 1fr));
         }
     }
