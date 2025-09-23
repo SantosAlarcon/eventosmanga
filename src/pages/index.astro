@@ -56,6 +56,9 @@ const events = (await getCollection("event"))
                     }
                 </ul>
             </section>
+            <section class="home__call__to__action">
+                ¿Eres un <b>organizador de eventos</b> y quieres que tus eventos aparezcan aquí? Pulsa en el botón <b>Añadir nuevo evento</b> en la parte superior de la página.
+            </section>
         </main>
         <Footer />
         <style>
@@ -169,6 +172,11 @@ const events = (await getCollection("event"))
                     position-area: inline-end center;
                     content: "▶" / "Moverse a la derecha";
                 }
+            }
+
+            .home__call__to__action {
+                text-align: center;
+                padding: 1rem 0;
             }
         </style>
     </body>
