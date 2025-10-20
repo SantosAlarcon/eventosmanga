@@ -19,11 +19,11 @@
         "@fullcalendar/list": "^6.1.19",
         "@fullcalendar/react": "^6.1.19",
         "@fullcalendar/timegrid": "^6.1.19",
-        "astro": "^5.14.4",
+        "astro": "^5.14.6",
         "fullcalendar": "^6.1.19",
         "react": "^19.2.0",
         "react-dom": "^19.2.0",
         "typescript": "^5.9.3"
     },
-    "packageManager": "pnpm@10.18.2"
+    "packageManager": "pnpm@10.18.3"
 }
