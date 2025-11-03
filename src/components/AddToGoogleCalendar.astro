@@ -1,13 +1,22 @@
 ---
 import { Image } from "astro:assets";
-import {convertDateFormat} from "../utils/convertDateFormat.ts"
-const {event} = Astro.props;
+import { convertDateFormat } from "../utils/convertDateFormat.ts";
+const { event } = Astro.props;
 const startDate = convertDateFormat(event.data.startDate);
 const endDate = convertDateFormat(event.data.endDate);
 ---
 
-<button class="add__google__calendar__button" aria-label="Añadir al Google Calendar">
-    <Image class="add__google__calendar__button__icon" width="20" height="20" src="/icons/google_calendar.svg" alt="Icono de Google Calendar" />
+<button
+    class="add__google__calendar__button"
+    aria-label="Añadir al Google Calendar"
+>
+    <Image
+        class="add__google__calendar__button__icon"
+        width="20"
+        height="20"
+        src="/icons/google_calendar.svg"
+        alt="Icono de Google Calendar"
+    />
     Añadir al Google Calendar
 </button>
 
@@ -19,11 +28,11 @@ const endDate = convertDateFormat(event.data.endDate);
         display: flex;
         align-items: center;
         color: var(--foreground);
-        gap: .5rem;
-        padding: .5rem .75rem;
-        border-radius: .5rem;
+        gap: 0.5rem;
+        padding: 0.5rem 0.75rem;
+        border-radius: 0.5rem;
         font-weight: bold;
-        font-size: .8rem;
+        font-size: 0.8rem;
         margin: 1rem auto auto auto;
     }
 
@@ -40,6 +49,9 @@ const endDate = convertDateFormat(event.data.endDate);
     const button = document.querySelector(".add__google__calendar__button");
 
     button.addEventListener("click", () => {
-        window.open(`https://calendar.google.com/calendar/render?action=TEMPLATE&text=${event.data.title}&dates=${startDate}/${endDate}&details=${event.data.description}&location=${event.data.location}`, '_blank');
-    })
+        window.open(
+            `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${event.data.title}&dates=${startDate}/${endDate}&details=${event.data.description}&location=${event.data.location}`,
+            "_blank",
+        );
+    });
 </script>
