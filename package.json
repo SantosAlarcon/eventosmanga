@@ -11,19 +11,19 @@
     },
     "dependencies": {
         "@astrojs/check": "^0.9.5",
-        "@astrojs/mdx": "^4.3.11",
+        "@astrojs/mdx": "^4.3.12",
         "@astrojs/react": "^4.4.2",
-        "@astrojs/rss": "^4.0.13",
+        "@astrojs/rss": "^4.0.14",
         "@astrojs/sitemap": "^3.6.0",
         "@fullcalendar/core": "^6.1.19",
         "@fullcalendar/list": "^6.1.19",
         "@fullcalendar/react": "^6.1.19",
         "@fullcalendar/timegrid": "^6.1.19",
-        "astro": "^5.15.9",
+        "astro": "^5.16.0",
         "fullcalendar": "^6.1.19",
         "react": "^19.2.0",
         "react-dom": "^19.2.0",
         "typescript": "^5.9.3"
     },
-    "packageManager": "pnpm@10.22.0"
+    "packageManager": "pnpm@10.23.0"
 }
