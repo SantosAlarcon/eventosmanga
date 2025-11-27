@@ -10,7 +10,7 @@
         "astro": "astro"
     },
     "dependencies": {
-        "@astrojs/check": "^0.9.5",
+        "@astrojs/check": "^0.9.6",
         "@astrojs/mdx": "^4.3.12",
         "@astrojs/react": "^4.4.2",
         "@astrojs/rss": "^4.0.14",
@@ -19,7 +19,7 @@
         "@fullcalendar/list": "^6.1.19",
         "@fullcalendar/react": "^6.1.19",
         "@fullcalendar/timegrid": "^6.1.19",
-        "astro": "^5.16.0",
+        "astro": "^5.16.1",
         "fullcalendar": "^6.1.19",
         "react": "^19.2.0",
         "react-dom": "^19.2.0",
