@@ -7,8 +7,8 @@ import MobileMenu from "./MobileMenu.astro";
 
 <header>
     <nav class="header__nav">
-        <a href="/"
-            ><Image
+        <a href="/">
+            <Image
                 class="header__nav__logo"
                 src="/LogoWithText.svg"
                 aria-label={SITE_TITLE}
@@ -16,22 +16,32 @@ import MobileMenu from "./MobileMenu.astro";
                 width="160"
                 alt=""
                 loading="eager"
-            /></a
-        >
+            />
+            <Image
+                class="header__nav__logo"
+                src="/Padoru.png"
+                aria-label="Padoru Padoru"
+                height="400"
+                width="50"
+                alt=""
+                loading="eager"
+                title="¡¡¡Padoru Padoru!!!"
+            />
+        </a>
         <div class="header__nav__links">
             <HeaderLink class="header__nav__link" href="/eventos"
                 >Eventos</HeaderLink
             >
-            <HeaderLink
-                class="header__nav__link"
-                href="/calendario">Calendario</HeaderLink
+            <HeaderLink class="header__nav__link" href="/calendario"
+                >Calendario</HeaderLink
             >
-            <a href="https://github.com/SantosAlarcon/eventosmanga/issues/new?assignees=santosalarcon&labels=enhancement&projects=&template=solicitud-nuevo-evento.yml&title=A%C3%B1adir+nuevo+evento%3A+"
+            <a
+                href="https://github.com/SantosAlarcon/eventosmanga/issues/new?assignees=santosalarcon&labels=enhancement&projects=&template=solicitud-nuevo-evento.yml&title=A%C3%B1adir+nuevo+evento%3A+"
                 target="_blank"
                 role="button"
                 aria-label="Añadir nuevo evento"
-                class="header__nav__button"
-            >Añadir nuevo evento</a>
+                class="header__nav__button">Añadir nuevo evento</a
+            >
         </div>
     </nav>
     <MobileMenu />

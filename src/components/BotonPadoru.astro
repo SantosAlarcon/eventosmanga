@@ -1,0 +1,47 @@
+---
+import { Image } from "astro:assets";
+import padoru from "../../public/Padoru.png";
+---
+
+<button class="boton__padoru">
+    <Image
+        class="boton__padoru__image"
+        src={padoru}
+        aria-label="Padoru Padoru"
+        height="250"
+        width="250"
+        alt=""
+        loading="eager"
+        title="¡¡¡Padoru Padoru!!!"
+    />
+</button>
+<style>
+    .boton__padoru {
+        background-color: transparent;
+        color: var(--foreground);
+        border: none;
+        padding: 0.5rem 1rem;
+        border-radius: 1rem;
+        font-size: 1rem;
+        cursor: pointer;
+    }
+
+    .boton__padoru__image {
+        border-radius: 0%;
+
+        @media (width <= 512px) {
+            width: 6rem;
+            height: auto;
+        }
+    }
+</style>
+<script>
+    import padoruSong from "../../public/PadoruSong.mp3";
+    const playPadoru = () => {
+        const audio = new Audio(padoruSong);
+        audio.play();
+    };
+
+    const padoruButton = document.querySelector(".boton__padoru");
+    padoruButton.addEventListener("click", playPadoru);
+</script>

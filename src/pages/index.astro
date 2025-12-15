@@ -5,6 +5,7 @@ import BaseHead from "../components/BaseHead.astro";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import EventItem from "../components/EventItem.astro";
+import BotonPadoru from "../components/BotonPadoru.astro";
 
 const events = (await getCollection("event"))
     .filter((event) => new Date(event.data.endDate) >= new Date())
@@ -21,11 +22,14 @@ const events = (await getCollection("event"))
         <Header />
         <main class="home__container">
             <section class="home__hero">
-                <img
-                    src="/LogoHorizontal.svg"
-                    alt="Eventos Manga"
-                    width="100%"
-                />
+                <div class="home__hero__logo">
+                    <img
+                        src="/LogoHorizontal.svg"
+                        alt="Eventos Manga"
+                        width="70%"
+                    />
+                    <BotonPadoru />
+                </div>
                 <h1 class="home__hero__title">¡Bienvenid@ a Eventos Manga!</h1>
                 <p class="home__hero__description">
                     En <b>Eventos Manga</b> encontrarás el calendario más completo
@@ -38,7 +42,7 @@ const events = (await getCollection("event"))
             </section>
             <section class="home__events">
                 <h3 class="home__events__title">Próximos eventos</h3>
-                <p>
+                <p class="home__events__description">
                     Desliza el dedo en horizontal para navegar por los eventos (<b
                         >versión de escritorio/tablets</b
                     >). Si quieres ver el listado completo de eventos, haz clíc
@@ -62,6 +66,10 @@ const events = (await getCollection("event"))
         </main>
         <Footer />
         <style>
+            h1, h2, h3, h4, h5, h6 {
+                margin-top: 2.5rem;
+            }
+
             p {
                 padding: 1rem 0;
             }
@@ -91,6 +99,12 @@ const events = (await getCollection("event"))
                 }
             }
 
+            .home__hero__logo {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+
             .home__hero__description {
                 text-align: center;
 
@@ -103,6 +117,12 @@ const events = (await getCollection("event"))
                 @media (width <= 512px) {
                     font-size: clamp(1rem, 5vw, 3rem);
                     text-align: center;
+                }
+            }
+
+            .home__events__description {
+                @media (width <= 512px) {
+                    font-size: clamp(0.7rem, 5vw, 1rem);
                 }
             }
 
