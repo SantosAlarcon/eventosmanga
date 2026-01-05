@@ -5,7 +5,6 @@ import BaseHead from "../components/BaseHead.astro";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import EventItem from "../components/EventItem.astro";
-import BotonPadoru from "../components/BotonPadoru.astro";
 
 const events = (await getCollection("event"))
     .filter((event) => new Date(event.data.endDate) >= new Date())
@@ -28,7 +27,6 @@ const events = (await getCollection("event"))
                         alt="Eventos Manga"
                         width="70%"
                     />
-                    <BotonPadoru />
                 </div>
                 <h1 class="home__hero__title">¡Bienvenid@ a Eventos Manga!</h1>
                 <p class="home__hero__description">
@@ -61,12 +59,19 @@ const events = (await getCollection("event"))
                 </ul>
             </section>
             <section class="home__call__to__action">
-                ¿Eres un <b>organizador de eventos</b> y quieres que tus eventos aparezcan aquí? Pulsa en el botón <b>Añadir nuevo evento</b> en la parte superior de la página.
+                ¿Eres un <b>organizador de eventos</b> y quieres que tus eventos
+                aparezcan aquí? Pulsa en el botón <b>Añadir nuevo evento</b> en la
+                parte superior de la página.
             </section>
         </main>
         <Footer />
         <style>
-            h1, h2, h3, h4, h5, h6 {
+            h1,
+            h2,
+            h3,
+            h4,
+            h5,
+            h6 {
                 margin-top: 2.5rem;
             }
 
@@ -172,7 +177,7 @@ const events = (await getCollection("event"))
                     color: #eeec;
                     border: 1px solid #eeea;
                     transition: all 0.2s ease-in-out;
-                    
+
                     @media (width <= 512px) {
                         display: none;
                     }
