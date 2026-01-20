@@ -3,7 +3,6 @@ import { getCollection } from "astro:content";
 import MainLayout from "../../layouts/MainLayout.astro";
 import { provinces } from "../../content/provinces";
 
-// @ts-ignore
 export async function getStaticPaths() {
     return provinces.map((province) => ({
         params: { slug: province.slug },

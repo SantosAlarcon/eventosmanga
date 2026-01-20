@@ -1,0 +1,85 @@
+---
+const { length, currentPage, firstUrl, prevUrl, nextUrl, lastUrl } =
+    Astro.props;
+const paginationList = Array.from({ length }, (_, i) => i + 1);
+---
+
+<nav aria-label="Blog pages" class="pagination">
+    {
+        firstUrl ? (
+            <a href={`${firstUrl}`} class="pagination__link" aria-label="Ir a la primera página">
+                &#171;
+            </a>
+        ) : (
+            <span class="pagination__link disabled">&#171;</span>
+        )
+    }
+
+    {
+        prevUrl ? (
+            <a href={`${prevUrl}`} class="pagination__link">
+                &#8249;
+            </a>
+        ) : (
+            <span class="pagination__link disabled">&#8249;</span>
+        )
+    }
+
+    {
+        paginationList.map((num) => (
+            <a
+                href={`/eventos/pasados${num == 1 ? "" : "/" + num}`}
+                class={`pagination__link ${currentPage == num ? "disabled active" : ""}`}
+                aria-label=`Ir a la página {num}`
+            >
+                {num}
+            </a>
+        ))
+    }
+
+    {
+        !nextUrl ? (
+            <span class="pagination__link disabled">&#8250;</span>
+        ) : (
+            <a href={`${nextUrl}`} class="pagination__link">
+                &#8250;
+            </a>
+        )
+    }
+
+    {
+        lastUrl ? (
+            <a href={`${lastUrl}`} class="pagination__link" aria-label="Ir a la última página">
+                &#187;
+            </a>
+        ) : (
+            <span class="pagination__link disabled">&#187;</span>
+        )
+    }
+</nav>
+
+<style>
+    .pagination {
+        display: flex;
+        justify-content: center;
+        gap: 1rem;
+
+        & .active {
+            color: #eee;
+            opacity: 1;
+        }
+
+        & a {
+            text-decoration: none;
+        }
+
+        & .disabled {
+            /* opacity: 0.5; */
+        }
+    }
+
+    .pagination__link {
+        color: #eee;
+        opacity: 0.5;
+    }
+</style>

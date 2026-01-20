@@ -2,19 +2,29 @@
 import { getCollection } from "astro:content";
 import MainLayout from "../../../layouts/MainLayout.astro";
 
-const events = (await getCollection("event"))
-    .filter((event) => new Date(event.data.startDate) < new Date())
-    .sort((a, b) => b.data.startDate.valueOf() - a.data.startDate.valueOf());
+export async function getStaticPaths({ paginate }) {
+    const events = (await getCollection("event"))
+        .filter((event) => new Date(event.data.startDate) < new Date())
+        .sort(
+            (a, b) => b.data.startDate.valueOf() - a.data.startDate.valueOf(),
+        );
+
+    return paginate(events, {
+        pageSize: 8,
+    });
+}
 import EventItem from "../../../components/EventItem.astro";
+import Pagination from "../../../components/Pagination.astro";
+const { page } = Astro.props;
 ---
 
 <MainLayout title="Eventos pasados - Eventos Manga">
     <section class="eventos">
-        <h1 class="eventos__title">Eventos pasados</h1>
+        <h1 class="eventos__title">Eventos pasados - Página {page.currentPage}</h1>
         <div class="eventos__content">
             <ul class="eventos__list">
                 {
-                    events.map((event) => (
+                    page.data.map((event) => (
                         <li class="eventos__list__item">
                             <EventItem event={event} />
                         </li>
@@ -23,6 +33,14 @@ import EventItem from "../../../components/EventItem.astro";
             </ul>
         </div>
     </section>
+    <Pagination
+        length={page.lastPage}
+        currentPage={page.currentPage}
+        firstUrl={page.url.first}
+        prevUrl={page.url.prev}
+        nextUrl={page.url.next}
+        lastUrl={page.url.last}
+    />
 </MainLayout>
 
 <style>
