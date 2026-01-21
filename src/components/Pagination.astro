@@ -30,7 +30,7 @@ const paginationList = Array.from({ length }, (_, i) => i + 1);
             <a
                 href={`/eventos/pasados${num == 1 ? "" : "/" + num}`}
                 class={`pagination__link ${currentPage == num ? "disabled active" : ""}`}
-                aria-label=`Ir a la página {num}`
+                aria-label=`Ir a la página ${num}`
             >
                 {num}
             </a>
@@ -63,6 +63,7 @@ const paginationList = Array.from({ length }, (_, i) => i + 1);
         display: flex;
         justify-content: center;
         gap: 1rem;
+        margin-top: 2rem;
 
         & .active {
             color: #eee;
@@ -75,6 +76,11 @@ const paginationList = Array.from({ length }, (_, i) => i + 1);
 
         & .disabled {
             /* opacity: 0.5; */
+        }
+
+        @media (width <= 640px) {
+            flex-wrap: wrap;
+            padding: 0 1rem;
         }
     }
 

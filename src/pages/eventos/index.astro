@@ -3,16 +3,16 @@ import { getCollection } from "astro:content";
 import MainLayout from "../../layouts/MainLayout.astro";
 
 // @ts-ignore
-const events = (await getCollection("event")).filter((event) => new Date(event.data.endDate) >= new Date()).sort(
-    (a, b) => a.data.startDate.valueOf() - b.data.startDate.valueOf(),
-);
+const events = (await getCollection("event"))
+    .filter((event) => new Date(event.data.endDate) >= new Date())
+    .sort((a, b) => a.data.startDate.valueOf() - b.data.startDate.valueOf());
 import EventItem from "../../components/EventItem.astro";
 ---
 
 <MainLayout title="Próximos eventos - Eventos Manga">
     <section class="eventos">
         <div class="eventos__header">
-            <a class="eventos__header__link" href="/eventos/pasados">
+            <a class="eventos__header__link" href="/eventos/pasados/1">
                 Ver Eventos pasados
             </a>
         </div>
