@@ -7,7 +7,7 @@ import CalendarIcon from "../../public/icons/calendar.svg";
 ---
 
 <a href={`/evento/${event.id}/`}>
-    <article class="event__item">
+    <section class="event__item">
         <div class="event__item__cover__container">
             <Image
                 class="event__item__image"
@@ -18,15 +18,13 @@ import CalendarIcon from "../../public/icons/calendar.svg";
                 width="640"
                 height="200"
             />
-        </div>
-        <h2 class="event__item__title">{event.data.title}</h2>
-        <div class="event__item__footer">
-            <p class="event__item__location">
-                <LocationIcon width={24} height={24} class="event__item__location__icon" color="#eee" />
-                {event.data.province}
-            </p>
             <p class="event__item__date">
-                <CalendarIcon width={24} height={24} class="event__item__date__icon" color="#eee" />
+                <CalendarIcon
+                    width={24}
+                    height={24}
+                    class="event__item__date__icon"
+                    color="#eee"
+                />
                 {
                     new Date(event.data.startDate).getTime() ===
                     new Date(event.data.endDate).getTime() ? (
@@ -40,7 +38,27 @@ import CalendarIcon from "../../public/icons/calendar.svg";
                 }
             </p>
         </div>
-    </article>
+        <section class="event__item__info">
+            <h2 class="event__item__title">{event.data.title}</h2>
+            <div class="event__item__footer">
+                <p class="event__item__location">
+                    <LocationIcon
+                        width={24}
+                        height={24}
+                        class="event__item__location__icon"
+                        color="#eee"
+                    />
+                    {event.data.province}
+                </p>
+                <p class="event__item__price">
+                    <span class="event__item__price__value">
+                        {event.data.price}
+                    </span>
+                    <span class="event__item__price__currency">€</span>
+                </p>
+            </div>
+        </section>
+    </section>
 </a>
 
 <style>
@@ -52,13 +70,21 @@ import CalendarIcon from "../../public/icons/calendar.svg";
     .event__item {
         display: flex;
         flex-direction: column;
-        gap: 1rem;
         padding: 1rem;
         width: 380px;
 
         @media (width <= 640px) {
             width: 100%;
         }
+
+    }
+
+    .event__item__info {
+        background-color: #e662;
+        backdrop-filter: blur(0.15rem);
+        border-radius: 0 0 0.5rem 0.5rem;
+        padding: 1rem;
+        box-shadow: 0 1rem 1rem rgba(0, 0, 0, .2);
     }
 
     .event__item__title {
@@ -75,8 +101,17 @@ import CalendarIcon from "../../public/icons/calendar.svg";
         font-size: 0.8rem;
     }
 
+    .event__item__price {
+        display: flex;
+        align-items: center;
+        color: var(--foreground-light);
+        font-size: 2rem;
+        font-weight: bold;
+        margin: 0;
+    }
+
     .event__item__cover__container {
-        border-radius: 0.5rem;
+        border-radius: 1rem 1rem 0 0;
         overflow: hidden;
         width: 100%;
     }
@@ -87,7 +122,7 @@ import CalendarIcon from "../../public/icons/calendar.svg";
         object-fit: cover;
         transition: all 0.2s ease-in-out;
         background-color: var(--foreground);
-        border-radius: 0.5rem;
+        border-radius: 1rem 1rem 0 0;
 
         &:hover {
             filter: brightness(1.2);
@@ -116,8 +151,18 @@ import CalendarIcon from "../../public/icons/calendar.svg";
         display: flex;
         align-items: center;
         gap: 0.25rem;
-        margin: 0;
+        margin-top: -3rem;
+        margin-left: .5rem;
         color: var(--foreground-light);
+        background-color: #a00b;
+        backdrop-filter: blur(0.25rem);
+        border: 1px solid #fff6;
+        padding: .25rem 1rem;
+        border-radius: 5rem;
+        width: fit-content;
+        font-size: .8rem;
+        font-weight: bold;
+        position: relative;
     }
 
     .event__item__date__icon {
