@@ -5,6 +5,7 @@ import BaseHead from "../components/BaseHead.astro";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import EventItem from "../components/EventItem.astro";
+import Hero from "../components/Hero.astro";
 
 const events = (await getCollection("event"))
     .filter((event) => new Date(event.data.endDate) >= new Date())
@@ -64,6 +65,7 @@ const events = (await getCollection("event"))
                 parte superior de la página.
             </section>
         </main>
+        <!-- <Hero /> -->
         <Footer />
         <style>
             h1,
