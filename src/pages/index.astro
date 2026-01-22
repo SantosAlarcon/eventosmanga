@@ -6,7 +6,7 @@ import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import EventItem from "../components/EventItem.astro";
 import Hero from "../components/Hero.astro";
-import NuevoEvento from "../components/NuevoEvento.astro"
+import NuevoEvento from "../components/NuevoEvento.astro";
 
 const events = (await getCollection("event"))
     .filter((event) => new Date(event.data.endDate) >= new Date())
@@ -42,11 +42,6 @@ const events = (await getCollection("event"))
                         ))
                     }
                 </ul>
-            </section>
-            <section class="home__call__to__action">
-                ¿Eres un <b>organizador de eventos</b> y quieres que tus eventos
-                aparezcan aquí? Pulsa en el botón <b>Añadir nuevo evento</b> en la
-                parte superior de la página.
             </section>
         </main>
         <NuevoEvento />
@@ -124,6 +119,18 @@ const events = (await getCollection("event"))
                 width: 100%;
                 overscroll-behavior-x: contain;
                 scroll-snap-type: x mandatory;
+
+                &::-webkit-scrollbar {
+                    -webkit-appearance: none;
+
+                    background-color: transparent;
+                    height: .5rem;
+                }
+
+                &::-webkit-scrollbar-thumb {
+                    background-color: #eee;
+                    border-radius: 1rem;
+                }
 
                 @media (width <= 640px) {
                     overflow: auto;
