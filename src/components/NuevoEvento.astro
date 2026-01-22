@@ -11,7 +11,7 @@ import Image from "astro/components/Image.astro";
             > de arriba.
         </p>
     </div>
-    <div class="nuevo-evento__inner-left">
+    <div class="nuevo-evento__inner-right">
         <Image
             src="/GrupoOtaku.webp"
             alt="Grupo otaku"
@@ -26,18 +26,38 @@ import Image from "astro/components/Image.astro";
         display: flex;
         padding: 0 3rem;
         background: linear-gradient(-45deg, #e336 0%, #33e6 100%);
-    }
 
+        @media (width <= 768px) {
+            flex-direction: column-reverse;
+            align-items: center;
+            padding: 0;
+        }
+    }
 
     .nuevo-evento__inner-left,
     .nuevo-evento__inner-right {
         display: flex;
         flex-direction: column;
         justify-content: center;
-        align-items: center;
         padding: 5rem 0;
-        width: 50%;
-        text-align: center;
+
+        @media (width <= 768px) {
+            width: 100%;
+            padding: 2.5rem;
+        }
+    }
+
+    .nuevo-evento__inner-left {
+        @media (width <= 768px) {
+            text-align: center;
+            align-items: center;
+        }
+    }
+    .nuevo-evento__inner-right {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
     }
 
     .nuevo-evento__title {

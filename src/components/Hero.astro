@@ -46,7 +46,7 @@
     }
 
     .hero__subbg {
-        background: linear-gradient(45deg, #119f 0%, #ff06 100%);
+        background: linear-gradient(45deg, #119f 0%, #f608 100%);
         background-blend-mode: darken;
         width: 100%;
         margin: 0;
@@ -54,6 +54,13 @@
 
     .hero__inner {
         padding: 4rem 3rem;
+        display: flex;
+        flex-direction: column;
+
+        @media (width <=768px) {
+            align-items: center;
+            text-align: center;
+        }
     }
 
     .hero__flair {
@@ -75,15 +82,26 @@
         font-weight: 900;
         line-height: 6rem;
         width: 50%;
+
+        @media (max-width: 768px) {
+            font-size: 4rem;
+            line-height: 5rem;
+            width: 100%;
+        }
     }
 
     .hero__title__span {
-        color: #f0f;
+        color: #f6f;
     }
 
     .hero__description {
         width: 50%;
         line-height: 1.75rem;
+
+        @media (max-width: 768px) {
+            width: 100%;
+            text-align: center;
+        }
     }
 
     .hero__cta {
@@ -91,6 +109,17 @@
         font-weight: 900;
         padding: 1rem 0;
         line-height: 2.5rem;
+    }
+
+    .hero__buttons {
+        display: flex;
+        margin-top: 2rem;
+
+        @media (max-width: 768px) {
+            flex-direction: column;
+            align-items: center;
+            margin-top: 1rem;
+        }
     }
 
     .hero__button {
@@ -101,7 +130,7 @@
         padding: 1rem 2.5rem 1rem 2rem;
         border-radius: 3rem;
         font-weight: 700;
-        font-size: 1.5rem;
+        font-size: clamp(1.1rem, 2vw, 1.25rem);
         transition: 0.2s ease-in-out;
         border: 1px #eee6 solid;
 
