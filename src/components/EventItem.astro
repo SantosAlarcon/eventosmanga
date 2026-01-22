@@ -26,13 +26,12 @@ import CalendarIcon from "../../public/icons/calendar.svg";
                     color="#eee"
                 />
                 {
-                    new Date(event.data.startDate).getTime() ===
-                    new Date(event.data.endDate).getTime() ? (
+                    new Date(event.data.startDate).getDate() ===
+                    new Date(event.data.endDate).getDate() ? (
                         <FormattedDate date={event.data.startDate} />
                     ) : (
                         <>
-                            <FormattedDate date={event.data.startDate} /> -
-                            <FormattedDate date={event.data.endDate} />
+                            {event.data.startDate.getDate()}-<FormattedDate date={event.data.endDate} />
                         </>
                     )
                 }
@@ -151,7 +150,6 @@ import CalendarIcon from "../../public/icons/calendar.svg";
     .event__item__date {
         display: flex;
         align-items: center;
-        gap: 0.25rem;
         margin-top: -3rem;
         margin-left: .5rem;
         color: var(--foreground-light);
@@ -161,7 +159,7 @@ import CalendarIcon from "../../public/icons/calendar.svg";
         padding: .25rem 1rem;
         border-radius: 5rem;
         width: fit-content;
-        font-size: .8rem;
+        font-size: .75rem;
         font-weight: bold;
         position: relative;
     }
@@ -170,5 +168,6 @@ import CalendarIcon from "../../public/icons/calendar.svg";
         width: 1rem;
         height: 1rem;
         border-radius: 0;
+        margin-right: .25rem;
     }
 </style>
