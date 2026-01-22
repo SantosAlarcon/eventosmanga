@@ -1,0 +1,46 @@
+---
+import Image from "astro/components/Image.astro";
+---
+
+<section class="nuevo-evento__container">
+    <div class="nuevo-evento__inner-left">
+        <h3 class="nuevo-evento__title">¿Tu evento no está en la lista?</h3>
+        <p class="nuevo-evento__text">
+            Si eres un <b>organizador de eventos</b> y quieres que tu evento esté
+            presente en esta Web, pulsa en el botón de <b>Añadir nuevo evento</b
+            > de arriba.
+        </p>
+    </div>
+    <div class="nuevo-evento__inner-left">
+        <Image
+            src="/GrupoOtaku.webp"
+            alt="Grupo otaku"
+            width="500"
+            height="500"
+        />
+    </div>
+</section>
+
+<style>
+    .nuevo-evento__container {
+        display: flex;
+        padding: 0 3rem;
+        background: linear-gradient(-45deg, #e336 0%, #33e6 100%);
+    }
+
+
+    .nuevo-evento__inner-left,
+    .nuevo-evento__inner-right {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 5rem 0;
+        width: 50%;
+        text-align: center;
+    }
+
+    .nuevo-evento__title {
+        padding: 2rem 0;
+    }
+</style>

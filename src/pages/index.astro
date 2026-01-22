@@ -6,6 +6,7 @@ import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import EventItem from "../components/EventItem.astro";
 import Hero from "../components/Hero.astro";
+import NuevoEvento from "../components/NuevoEvento.astro"
 
 const events = (await getCollection("event"))
     .filter((event) => new Date(event.data.endDate) >= new Date())
@@ -20,25 +21,8 @@ const events = (await getCollection("event"))
     </head>
     <body>
         <Header />
+        <Hero />
         <main class="home__container">
-            <section class="home__hero">
-                <div class="home__hero__logo">
-                    <img
-                        src="/LogoHorizontal.svg"
-                        alt="Eventos Manga"
-                        width="70%"
-                    />
-                </div>
-                <h1 class="home__hero__title">¡Bienvenid@ a Eventos Manga!</h1>
-                <p class="home__hero__description">
-                    En <b>Eventos Manga</b> encontrarás el calendario más completo
-                    de salones, ferias, concursos y todas las actividades relacionadas
-                    con el mundo del <b>manga y anime</b> en España.
-                </p>
-                <h2 class="home__hero__cta">
-                    ¡Mantente informado y únete a la comunidad otaku!
-                </h2>
-            </section>
             <section class="home__events">
                 <h3 class="home__events__title">Próximos eventos</h3>
                 <p class="home__events__description">
@@ -65,7 +49,7 @@ const events = (await getCollection("event"))
                 parte superior de la página.
             </section>
         </main>
-        <!-- <Hero /> -->
+        <NuevoEvento />
         <Footer />
         <style>
             h1,

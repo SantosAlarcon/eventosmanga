@@ -29,7 +29,9 @@
                     class="hero__button"
                     href="/eventos"
                     aria-label="Ir a la lista de eventos"
-                    >Descubrir nuevos eventos -></a
+                    >Descubrir nuevos eventos <span
+                        class="hero__button__left-arrow">&rarr;</span
+                    ></a
                 >
             </section>
         </section>
@@ -51,7 +53,7 @@
     }
 
     .hero__inner {
-        padding: 3rem;
+        padding: 4rem 3rem;
     }
 
     .hero__flair {
@@ -88,14 +90,33 @@
         font-size: 2rem;
         font-weight: 900;
         padding: 1rem 0;
+        line-height: 2.5rem;
     }
 
     .hero__button {
-        background-color: #a33;
+        background-color: #a338;
+        backdrop-filter: blur(.25rem);
         text-decoration: none;
         color: #eee;
-        padding: 1rem 2rem;
+        padding: 1rem 2.5rem 1rem 2rem;
         border-radius: 3rem;
         font-weight: 700;
+        font-size: 1.5rem;
+        transition: 0.2s ease-in-out;
+        border: 1px #eee6 solid;
+
+        &:hover {
+            background-color: #e228;
+
+            & .hero__button__left-arrow {
+                transform: translateX(0.5rem);
+            }
+        }
+    }
+
+    .hero__button__left-arrow {
+        padding-left: 0.5rem;
+        display: inline-block;
+        transition: .2s ease-in-out;
     }
 </style>

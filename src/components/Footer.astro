@@ -15,6 +15,7 @@ import { provinces } from "../content/provinces";
                         <a
                             class="footer__provinces__list__item"
                             href={`/eventos/${province.slug}`}
+                            aria-label={`Eventos de ${province.name}`}
                         >
                             {province.name}
                         </a>
@@ -196,7 +197,12 @@ import { provinces } from "../content/provinces";
         transition: all 0.25s ease-in-out;
         text-decoration: none;
         color: var(--white);
-        opacity: 0.5;
+        background-color: #eee3;
+        padding: .5rem;
+        border-radius: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
     .social-links a:hover {
         transform: scale(1.3);

@@ -19,7 +19,7 @@
         "@fullcalendar/list": "^6.1.20",
         "@fullcalendar/react": "^6.1.20",
         "@fullcalendar/timegrid": "^6.1.20",
-        "astro": "^5.16.11",
+        "astro": "^5.16.13",
         "fullcalendar": "^6.1.20",
         "react": "^19.2.3",
         "react-dom": "^19.2.3",
