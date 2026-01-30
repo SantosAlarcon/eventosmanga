@@ -58,7 +58,7 @@ const eventJSONLd = {
                     alt={`Cartel de ${event.data.title}`}
                     loading="lazy"
                     width="640"
-                    height="200"
+                    height="900"
                 />
             </div>
             <div class="event__info__data">
@@ -95,7 +95,9 @@ const eventJSONLd = {
                     {event.data.location} - ({event.data.province})
                 </p>
                 <p class="event__info__data__item">
-                    <PriceIcon width={24} height={24} class="event__info__icon" color="#eee" />
+                    <PriceIcon width={24} height={24} class="event__info__icon" color={
+                        event.data.price === 0 ? "#ee0" : "#eee"
+                        } />
                     {event.data.price > 0 ? `${event.data.price} €` : "Gratis"}
                 </p>
                 {
