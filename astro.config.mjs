@@ -5,6 +5,10 @@ import sitemap from "@astrojs/sitemap";
 
 // https://astro.build/config
 export default defineConfig({
+    experimental: {
+        rustCompiler: true
+    },
+    security: {csp: true},
     site: "https://www.eventosmanga.es",
     prefetch: {
         prefetchAll: true,
