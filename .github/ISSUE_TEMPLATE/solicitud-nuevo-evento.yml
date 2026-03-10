@@ -59,13 +59,14 @@ body:
   - type: input
     id: location
     attributes:
-      label: Localización del evento
+      label: Lugar del evento
+      description: Lugar/recinto donde se celebrará el evento
     validations:
       required: true
   - type: input
     id: cover-image
     attributes:
-      label: Imagen de portada
+      label: URL de la imagen de portada
     validations:
       required: true
   - type: input
@@ -73,11 +74,11 @@ body:
     attributes:
       label: Perfil de Twitter/X
     validations:
-      required: true
+      required: false
   - type: textarea
     id: details
     attributes:
-      label: Detalles
-      description: Esta información aparecerá como contenido del evento
+      label: Detalles del evento
+      description: En este espacio se hablará de las actividades, el horario y los invitados que participarán en dicho evento
     validations:
       required: false
