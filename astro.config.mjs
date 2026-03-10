@@ -8,7 +8,6 @@ export default defineConfig({
     experimental: {
         rustCompiler: true
     },
-    security: {csp: true},
     site: "https://www.eventosmanga.es",
     prefetch: {
         prefetchAll: true,
