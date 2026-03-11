@@ -1,21 +1,24 @@
 ---
-import { ClientRouter } from 'astro:transitions';
-import '../styles/global.css';
+import { ClientRouter } from "astro:transitions";
+import "../styles/global.css";
 
 interface Props {
-	title: string;
-	description: string;
-	image?: string;
+    title: string;
+    description: string;
+    image?: string;
 }
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 
-const { title, description, image = '/Portada.webp' } = Astro.props;
+const { title, description, image = "/Portada.webp" } = Astro.props;
 ---
 
 <!-- Global Metadata -->
 <meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1, viewport-fit=cover" />
+<meta
+    name="viewport"
+    content="width=device-width,initial-scale=1, viewport-fit=cover"
+/>
 <link rel="icon" type="image/web" sizes="144x144" href="/Logo.webp" />
 <meta name="generator" content={Astro.generator} />
 <link rel="manifest" href="/site.webmanifest" />
@@ -25,8 +28,20 @@ const { title, description, image = '/Portada.webp' } = Astro.props;
 <meta name="apple-mobile-web-app-status-bar-style" content="black" />
 
 <!-- Font preloads -->
-<link rel="preload" href="/fonts/RedHatDisplay-VF.ttf" as="font" type="font/ttf" crossorigin />
-<link rel="preload" href="/fonts/RedHatDisplay-Italic-VF.ttf" as="font" type="font/ttf" crossorigin />
+<link
+    rel="preload"
+    href="/fonts/InterTight-VF.ttf"
+    as="font"
+    type="font/ttf"
+    crossorigin
+/>
+<link
+    rel="preload"
+    href="/fonts/InterTight-Italic-VF.ttf"
+    as="font"
+    type="font/ttf"
+    crossorigin
+/>
 
 <!-- Canonical URL -->
 <link rel="canonical" href={canonicalURL} />
@@ -35,7 +50,10 @@ const { title, description, image = '/Portada.webp' } = Astro.props;
 <title>{title}</title>
 <meta name="title" content={title} />
 <meta name="description" content={description} />
-<meta name="keywords" content="eventos manga españa, eventos manga, salones manga, salones manga españa" />
+<meta
+    name="keywords"
+    content="eventos manga españa, eventos manga, salones manga, salones manga españa"
+/>
 
 <!-- Open Graph / Facebook -->
 <meta property="og:type" content="website" />

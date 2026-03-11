@@ -12,7 +12,7 @@
     "dependencies": {
         "@astrojs/check": "0.9.7",
         "@astrojs/compiler-rs": "^0.1.4",
-        "@astrojs/mdx": "5.0.0-beta.2",
+        "@astrojs/mdx": "5.0.0",
         "@astrojs/react": "5.0.0",
         "@astrojs/rss": "4.0.17",
         "@astrojs/sitemap": "3.7.1",
@@ -20,11 +20,11 @@
         "@fullcalendar/list": "^6.1.20",
         "@fullcalendar/react": "^6.1.20",
         "@fullcalendar/timegrid": "^6.1.20",
-        "astro": "6.0.1",
+        "astro": "6.0.2",
         "fullcalendar": "^6.1.20",
         "react": "^19.2.4",
         "react-dom": "^19.2.4",
         "typescript": "^5.9.3"
     },
-    "packageManager": "pnpm@10.32.0"
+    "packageManager": "pnpm@10.32.1"
 }
