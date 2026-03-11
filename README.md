@@ -23,10 +23,11 @@ Este proyecto tiene como objetivo crear una plataforma completa y actualizada do
 
 **NOTA ADICIONAL:** Este sitio hace uso de la **API View Transitions** para las transiciones entre páginas, y se nota en las animaciones de los carteles de eventos.
 
-**NOTA ADICIONAL 2:** Este sitio está actualizado a **Astro 5**, y hace uso de las [**Content Collections**](https://docs.astro.build/en/guides/content-collections/), la nueva API para cargar los eventos desde los **archivos Markdown**.
+**NOTA ADICIONAL 2:** Este sitio está actualizado a **Astro 6**, y hace uso de las [**Content Collections**](https://docs.astro.build/en/guides/content-collections/), la nueva API para cargar los eventos desde los **archivos Markdown**.
 
 ## Contribuciones
-Se agradece cualquier contribución para mejorar el sitio Web, incluyendo el **añadir nuevos eventos**. Si hay algún problema con el sitio, puedes **abrir una issue** detallando dicho problema.
+Este proyecto acepta cualquier tipo de contribución con el fin de mejorar la experiencia del usuario. Eso incluye el **añadir nuevos eventos** como mejoras de calidad. 
+Si eres o perteneces a una empresa organizadora de eventos de manga y anime, no dudes en enviar una "issue" usando la plantilla de **"Nuevo evento"**, proporcionando la información que se pide en el formulario.
 
 ## Licencia
 Este proyecto está distribuído bajo la **Licencia del MIT**. Lee el archivo `LICENSE` para más información.
