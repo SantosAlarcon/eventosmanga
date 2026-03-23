@@ -4,6 +4,7 @@ import FormattedDate from "./FormattedDate.astro";
 const { event } = Astro.props;
 import LocationIcon from "../../public/icons/location.svg";
 import CalendarIcon from "../../public/icons/calendar.svg";
+import PriceIcon from "../../public/icons/price.svg";
 ---
 
 <a href={`/evento/${event.id}/`}>
@@ -51,10 +52,18 @@ import CalendarIcon from "../../public/icons/calendar.svg";
                     {event.data.province}
                 </p>
                 <p class="event__item__price">
+                    <PriceIcon
+                        width={16}
+                        height={16}
+                        class="event__item__price__icon"
+                    />
                     <span class="event__item__price__value">
-                        {event.data.price}
+                        {
+                            event.data.price > 0
+                                ? `${event.data.price} €`
+                                : "Gratis"
+                        }
                     </span>
-                    <span class="event__item__price__currency">€</span>
                 </p>
             </div>
         </section>
@@ -87,8 +96,8 @@ import CalendarIcon from "../../public/icons/calendar.svg";
     }
 
     .event__item__title {
-        font-size: 1.25rem;
-        line-height: 1.65;
+        font-size: 1.5rem;
+        line-height: 1.25;
         font-weight: bold;
         color: var(--foreground);
     }
@@ -101,12 +110,16 @@ import CalendarIcon from "../../public/icons/calendar.svg";
     }
 
     .event__item__price {
+        background-color: #933;
+        padding: 0.25rem 0.75rem;
+        border-radius: 1rem;
         display: flex;
         align-items: center;
         color: var(--foreground-light);
-        font-size: 2rem;
+        font-size: 1rem;
         font-weight: bold;
         margin: 0;
+        gap: 0.25rem;
     }
 
     .event__item__cover__container {
