@@ -8,8 +8,8 @@ export default defineConfig({
 	experimental: {
 		rustCompiler: true,
 		queuedRendering: {
-			enabled: true
-		}
+			enabled: true,
+		},
 	},
 	site: "https://www.eventosmanga.es",
 	prefetch: {

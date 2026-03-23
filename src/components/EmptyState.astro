@@ -1,0 +1,77 @@
+---
+interface Props {
+    title?: string;
+    message?: string;
+}
+
+const {
+    title = "No hay eventos",
+    message = "No se han encontrado eventos. Prueba a buscar en otra provincia o vuelve más tarde."
+} = Astro.props;
+---
+
+<div class="empty-state">
+    <div class="empty-state__icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5" />
+        </svg>
+    </div>
+    <h2 class="empty-state__title">{title}</h2>
+    <p class="empty-state__message">{message}</p>
+    <a href="/eventos" class="empty-state__button">Ver todos los eventos</a>
+</div>
+
+<style>
+    .empty-state {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 3rem 1.5rem;
+        text-align: center;
+        gap: 1rem;
+    }
+
+    .empty-state__icon {
+        width: 4rem;
+        height: 4rem;
+        color: var(--foreground);
+        opacity: 0.5;
+    }
+
+    .empty-state__icon svg {
+        width: 100%;
+        height: 100%;
+    }
+
+    .empty-state__title {
+        font-size: 1.5rem;
+        font-weight: bold;
+        margin: 0;
+        color: var(--foreground);
+    }
+
+    .empty-state__message {
+        font-size: 1rem;
+        color: var(--foreground);
+        opacity: 0.8;
+        max-width: 300px;
+        margin: 0;
+    }
+
+    .empty-state__button {
+        margin-top: 1rem;
+        padding: 0.75rem 1.5rem;
+        background-color: var(--accent);
+        color: #eee;
+        text-decoration: none;
+        border-radius: 2rem;
+        font-weight: bold;
+        transition: all 0.2s ease;
+
+        &:hover {
+            background-color: #c44a2a;
+            transform: scale(1.05);
+        }
+    }
+</style>
