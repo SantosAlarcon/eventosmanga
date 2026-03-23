@@ -4,7 +4,6 @@ import esLocale from "@fullcalendar/core/locales/es";
 import dayGridPlugin from "@fullcalendar/daygrid";
 import listPlugin from "@fullcalendar/list";
 import FullCalendar from "@fullcalendar/react";
-import timeGridPlugin from "@fullcalendar/timegrid";
 import { Suspense, useEffect, useState } from "react";
 import "../styles/calendar.css";
 
@@ -30,25 +29,25 @@ const Calendar = () => {
 		setMounted(true);
 	}, []);
 
-	if (!mounted) return null;
+	if (!mounted) return <Suspense fallback={
+		<div>Cargando el calendario...</div>
+	}></Suspense>;
 
 	return (
-		<Suspense fallback={<div>Cargando el calendario...</div>}>
-			<FullCalendar
-				plugins={[dayGridPlugin, timeGridPlugin, listPlugin]}
-				headerToolbar={{
-					left: "prev, next",
-					center: "title",
-					right: "dayGridMonth, timeGridWeek, listWeek",
-				}}
-				initialView={isMobile ? "listWeek" : "dayGridMonth"}
-				locale={esLocale}
-				events={events}
-				eventDisplay="auto"
-				displayEventTime={false}
-				displayEventEnd={false}
-			/>
-		</Suspense>
+		<FullCalendar
+			plugins={[dayGridPlugin, listPlugin]}
+			headerToolbar={{
+				left: "prev, next",
+				center: "title",
+				right: "dayGridMonth, listWeek",
+			}}
+			initialView={isMobile ? "listWeek" : "dayGridMonth"}
+			locale={esLocale}
+			events={events}
+			eventDisplay="auto"
+			displayEventTime={false}
+			displayEventEnd={false}
+		/>
 	);
 };
 
