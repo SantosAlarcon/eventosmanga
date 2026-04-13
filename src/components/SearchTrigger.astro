@@ -1,0 +1,66 @@
+---
+interface Props {
+    class?: string;
+}
+const { class: className } = Astro.props;
+---
+
+<a
+    href="/buscar"
+    class:list={["search-trigger", className]}
+    aria-label="Buscar eventos"
+>
+    <svg
+        width="20"
+        height="20"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+    >
+        <circle cx="11" cy="11" r="8"></circle>
+        <path d="m21 21-4.35-4.35"></path>
+    </svg>
+    <span class="search-trigger__shortcut">⌘K</span>
+</a>
+
+<style>
+    .search-trigger {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        background: rgba(255, 255, 255, 0.1);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        border-radius: 8px;
+        padding: 0.5rem 1rem;
+        color: var(--foreground);
+        cursor: pointer;
+        transition: all 0.2s;
+        font-size: 0.9rem;
+        text-decoration: none;
+    }
+
+    .search-trigger:hover {
+        background: rgba(255, 255, 255, 0.2);
+    }
+
+    .search-trigger__shortcut {
+        font-size: 0.75rem;
+        opacity: 0.7;
+    }
+
+    @media (max-width: 640px) {
+        .search-trigger__shortcut {
+            display: none;
+        }
+    }
+</style>
+
+<script>
+    document.addEventListener("keydown", (e) => {
+        if ((e.metaKey || e.ctrlKey) && e.key === "k") {
+            e.preventDefault();
+            window.location.href = "/buscar";
+        }
+    });
+</script>

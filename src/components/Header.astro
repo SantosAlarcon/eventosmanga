@@ -3,6 +3,7 @@ import HeaderLink from "./HeaderLink.astro";
 import { SITE_TITLE } from "../consts";
 import { Image } from "astro:assets";
 import MobileMenu from "./MobileMenu.astro";
+import SearchTrigger from "./SearchTrigger.astro";
 ---
 
 <header>
@@ -25,6 +26,7 @@ import MobileMenu from "./MobileMenu.astro";
             <HeaderLink class="header__nav__link" href="/calendario"
                 >Calendario</HeaderLink
             >
+            <SearchTrigger class="header__nav__link" />
             <a
                 href="https://github.com/SantosAlarcon/eventosmanga/issues/new?assignees=santosalarcon&labels=enhancement&projects=&template=solicitud-nuevo-evento.yml&title=A%C3%B1adir+nuevo+evento%3A+"
                 target="_blank"

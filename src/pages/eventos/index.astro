@@ -1,12 +1,14 @@
 ---
 import { getCollection } from "astro:content";
 import MainLayout from "../../layouts/MainLayout.astro";
+import { provinces } from "../../content/provinces";
 
-// @ts-ignore
 const events = (await getCollection("event"))
     .filter((event) => new Date(event.data.endDate) >= new Date())
     .sort((a, b) => a.data.startDate.valueOf() - b.data.startDate.valueOf());
 import EventItem from "../../components/EventItem.astro";
+
+const selectedProvince = Astro.url.searchParams.get("provincia") || "";
 ---
 
 <MainLayout title="Próximos eventos - Eventos Manga">
@@ -17,6 +19,34 @@ import EventItem from "../../components/EventItem.astro";
             </a>
         </div>
         <h1 class="eventos__title">Próximos eventos</h1>
+        <div class="province-selector">
+            <a 
+                href="/eventos" 
+                class:list={["province-btn", { active: !selectedProvince }]}
+            >
+                Todas las provincias
+            </a>
+            <div class="province-dropdown">
+                <button class="province-dropdown__toggle">
+                    {selectedProvince ? provinces.find(p => p.slug === selectedProvince)?.name : "Filtrar por provincia"}
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polyline points="6 9 12 15 18 9"/>
+                    </svg>
+                </button>
+                <ul class="province-dropdown__menu">
+                    {provinces.map((province) => (
+                        <li>
+                            <a 
+                                href={`/eventos/${province.slug}`}
+                                class:list={["province-dropdown__item", { active: selectedProvince === province.slug }]}
+                            >
+                                {province.name}
+                            </a>
+                        </li>
+                    ))}
+                </ul>
+            </div>
+        </div>
         <div class="eventos__content">
             <ul class="eventos__list">
                 {
@@ -89,6 +119,111 @@ import EventItem from "../../components/EventItem.astro";
 
         @media (width <= 790px) {
             grid-template-columns: repeat(1, minmax(20rem, 1fr));
+        }
+    }
+
+    .province-selector {
+        display: flex;
+        gap: 1rem;
+        flex-wrap: wrap;
+        margin-bottom: 1.5rem;
+    }
+
+    .province-btn {
+        padding: 0.5rem 1rem;
+        border-radius: 2rem;
+        text-decoration: none;
+        background: rgba(255, 255, 255, 0.1);
+        color: var(--foreground);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        transition: all 0.2s;
+        font-size: 0.9rem;
+
+        &:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        &.active {
+            background: var(--foreground);
+            color: #4a0000;
+            border-color: var(--foreground);
+        }
+    }
+
+    .province-dropdown {
+        position: relative;
+
+        &:hover .province-dropdown__menu {
+            display: grid;
+        }
+    }
+
+    .province-dropdown__toggle {
+        padding: 0.5rem 1rem;
+        border-radius: 2rem;
+        background: rgba(255, 255, 255, 0.1);
+        color: var(--foreground);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        font-size: 0.9rem;
+        transition: all 0.2s;
+
+        &:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+    }
+
+    .province-dropdown__menu {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        margin-top: 0.5rem;
+        background: #2a0000;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        border-radius: 0.5rem;
+        padding: 0.5rem;
+        list-style: none;
+        max-height: 300px;
+        overflow-y: auto;
+        z-index: 100;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.25rem;
+        min-width: 300px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+
+        &::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        &::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        &::-webkit-scrollbar-thumb {
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 4px;
+        }
+    }
+
+    .province-dropdown__item {
+        padding: 0.5rem;
+        border-radius: 0.25rem;
+        text-decoration: none;
+        color: var(--foreground);
+        font-size: 0.85rem;
+        transition: all 0.15s;
+
+        &:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        &.active {
+            background: var(--foreground);
+            color: #4a0000;
         }
     }
 </style>

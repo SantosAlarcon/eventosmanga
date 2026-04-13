@@ -1,0 +1,139 @@
+---
+import MainLayout from "../layouts/MainLayout.astro";
+import Search from "astro-pagefind/components/Search";
+---
+
+<MainLayout title="Buscar eventos - Eventos Manga">
+    <section class="buscar">
+        <h1 class="buscar__title">Buscar eventos</h1>
+        <p class="buscar__description">
+            Busca eventos por nombre, descripción, ubicación o provincia.
+        </p>
+
+        <div class="buscar__container">
+            <Search
+                id="search"
+                className="pagefind-search"
+                uiOptions={{
+                    translations: {
+                        placeholder: "Buscar eventos...",
+                        zero_results: "No hay resultados para '[SEARCH_TERM]'",
+                        many_results: "[COUNT] resultados para '[SEARCH_TERM]'",
+                        one_result: "1 resultado para '[SEARCH_TERM]'",
+                        load_more: "Ver más resultados",
+                        clear_search: "Limpiar búsqueda",
+                    },
+                }}
+            />
+        </div>
+
+        <p class="buscar__hint">
+            Tip: Usa <kbd>⌘K</kbd> para abrir la búsqueda rápida desde cualquier
+            página.
+        </p>
+    </section>
+</MainLayout>
+
+<style>
+    .buscar {
+        padding: 3rem;
+        max-width: 800px;
+        margin: 0 auto;
+        color: var(--foreground);
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+
+    .buscar__title {
+        color: var(--foreground);
+        font-size: 2.25rem;
+        margin: 0;
+    }
+
+    .buscar__description {
+        color: var(--foreground);
+        opacity: 0.8;
+        margin: 0;
+    }
+
+    .buscar__container {
+        min-height: 400px;
+    }
+
+    .buscar__hint {
+        text-align: center;
+        font-size: 0.9rem;
+        opacity: 0.6;
+        margin-top: 1rem;
+    }
+
+    .buscar__hint kbd {
+        background: rgba(255, 255, 255, 0.1);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        border-radius: 4px;
+        padding: 0.2rem 0.5rem;
+        font-family: monospace;
+    }
+
+    :global(.pagefind-ui) {
+        --pagefind-ui-scale: 1;
+        --pagefind-ui-primary: #eee;
+        --pagefind-ui-text: #eee;
+        --pagefind-ui-background: transparent;
+        --pagefind-ui-border: rgba(255, 255, 255, 0.2);
+        --pagefind-ui-tag: rgba(255, 255, 255, 0.1);
+        --pagefind-ui-border-width: 1px;
+        --pagefind-ui-border-radius: 12px;
+        --pagefind-ui-image-border-radius: 8px;
+        --pagefind-ui-font: "Inter Tight", system-ui, sans-serif;
+    }
+
+    :global(.pagefind-ui__search-input) {
+        background: rgba(255, 255, 255, 0.1) !important;
+        border: 1px solid rgba(255, 255, 255, 0.2) !important;
+        color: #eee !important;
+        border-radius: 12px !important;
+        font-size: 1.1rem !important;
+        font-weight: 500 !important;
+    }
+
+    :global(.pagefind-ui__search-input::placeholder) {
+        color: rgba(255, 255, 255, 0.5) !important;
+    }
+
+    :global(.pagefind-ui__search-input:focus) {
+        outline: none !important;
+        border-color: rgba(255, 255, 255, 0.4) !important;
+        box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.1) !important;
+    }
+
+    :global(.pagefind-ui__result) {
+        background: rgba(255, 255, 255, 0.05);
+        border-radius: 12px;
+        padding: 1rem;
+        margin-top: 0.75rem;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    :global(.pagefind-ui__result-title) {
+        color: #eee !important;
+        font-weight: 600;
+    }
+
+    :global(.pagefind-ui__result-excerpt) {
+        color: rgba(255, 255, 255, 0.7) !important;
+        font-size: 0.9rem;
+        line-height: 1.5;
+    }
+
+    :global(.pagefind-ui__result-link) {
+        color: #f66 !important;
+    }
+
+    @media (max-width: 640px) {
+        .buscar {
+            padding: 1.5rem;
+        }
+    }
+</style>

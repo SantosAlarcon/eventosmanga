@@ -2,6 +2,7 @@ import mdx from "@astrojs/mdx";
 import react from "@astrojs/react";
 import sitemap from "@astrojs/sitemap";
 import { defineConfig } from "astro/config";
+import pagefind from "astro-pagefind";
 
 // https://astro.build/config
 export default defineConfig({
@@ -19,6 +20,21 @@ export default defineConfig({
 	image: {
 		remotePatterns: [{ protocol: "https" }],
 	},
+	vite: {
+		optimizeDeps: {
+			include: [
+				"@fullcalendar/core",
+				"@fullcalendar/daygrid",
+				"@fullcalendar/list",
+				"@fullcalendar/react",
+			],
+		},
+		build: {
+			rollupOptions: {
+				external: ["/pagefind/pagefind-ui.js"],
+			},
+		},
+	},
 	integrations: [
 		react(),
 		mdx({ optimize: true }),
@@ -27,5 +43,6 @@ export default defineConfig({
 			priority: 0.8,
 			lastmod: new Date(),
 		}),
+		pagefind(),
 	],
 });
