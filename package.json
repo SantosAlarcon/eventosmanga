@@ -11,7 +11,7 @@
     },
     "dependencies": {
         "@astrojs/check": "0.9.8",
-        "@astrojs/compiler-rs": "^0.1.6",
+        "@astrojs/compiler-rs": "^0.1.7",
         "@astrojs/mdx": "5.0.3",
         "@astrojs/react": "5.0.3",
         "@astrojs/sitemap": "3.7.2",
@@ -21,7 +21,7 @@
         "@fullcalendar/react": "^6.1.20",
         "@fullcalendar/timegrid": "^6.1.20",
         "@pagefind/default-ui": "^1.5.2",
-        "astro": "6.1.5",
+        "astro": "6.1.6",
         "astro-pagefind": "^1.8.6",
         "fullcalendar": "^6.1.20",
         "pagefind": "^1.5.2",
