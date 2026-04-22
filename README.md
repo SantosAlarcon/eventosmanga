@@ -29,6 +29,8 @@ Este proyecto tiene como objetivo crear una plataforma completa y actualizada do
 Este proyecto acepta cualquier tipo de contribución con el fin de mejorar la experiencia del usuario. Eso incluye el **añadir nuevos eventos** como mejoras de calidad. 
 Si eres o perteneces a una empresa organizadora de eventos de manga y anime, no dudes en enviar una "issue" usando la plantilla de **"Nuevo evento"**, proporcionando la información que se pide en el formulario.
 
+En caso de que no quieras crearte una cuenta en GitHub, contacta conmigo a través de mi [correo electrónico](mailto:santosalarcon86@gmail.com) proporcionando la información obligada para que yo la pueda añadir al sitio.
+
 ## Licencia
 Este proyecto está distribuído bajo la **Licencia del MIT**. Lee el archivo `LICENSE` para más información.
 
