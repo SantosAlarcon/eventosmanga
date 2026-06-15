@@ -30,7 +30,7 @@ const { provinceName, upcomingEvents } = Astro.props;
 const hasEvents = upcomingEvents.length > 0;
 ---
 
-<MainLayout title={`Eventos en ${provinceName} - Eventos Manga`}>
+<MainLayout title={`Eventos en ${provinceName} - Eventos Manga`} description={`Descubre todos los eventos manga, salones y convenciones anime en ${provinceName}. Calendario actualizado con fechas, ubicaciones y precios.`}>
     <section class="provincia">
         <a href="/eventos" class="back-link">← Ver todos los eventos</a>
 
@@ -80,6 +80,32 @@ const hasEvents = upcomingEvents.length > 0;
         }
     </section>
 </MainLayout>
+
+<script type="application/ld+json" is:inline>
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Eventos Manga",
+                "item": "https://www.eventosmanga.es"
+            },
+            {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Próximos eventos",
+                "item": "https://www.eventosmanga.es/eventos"
+            },
+            {
+                "@type": "ListItem",
+                "position": 3,
+                "name": provinceName
+            }
+        ]
+    }
+</script>
 
 <style>
     .provincia {

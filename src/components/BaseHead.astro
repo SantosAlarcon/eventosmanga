@@ -19,7 +19,9 @@ const { title, description, image = "/Portada.webp" } = Astro.props;
     name="viewport"
     content="width=device-width,initial-scale=1, viewport-fit=cover"
 />
-<link rel="icon" type="image/web" sizes="144x144" href="/Logo.webp" />
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<link rel="icon" type="image/webp" sizes="144x144" href="/Logo.webp" />
+<meta name="theme-color" content="#4a0000" />
 <meta name="generator" content={Astro.generator} />
 <link rel="manifest" href="/site.webmanifest" />
 
@@ -46,22 +48,29 @@ const { title, description, image = "/Portada.webp" } = Astro.props;
 <!-- Canonical URL -->
 <link rel="canonical" href={canonicalURL} />
 
+<!-- RSS -->
+<link
+    rel="alternate"
+    type="application/rss+xml"
+    title="Eventos Manga - RSS"
+    href="/rss.xml"
+/>
+
 <!-- Primary Meta Tags -->
 <title>{title}</title>
 <meta name="title" content={title} />
 <meta name="description" content={description} />
-<meta
-    name="keywords"
-    content="eventos manga españa, eventos manga, salones manga, salones manga españa, convenciones anime españa, eventos anime españa"
-/>
+<meta name="robots" content="index, follow, max-image-preview:large" />
 
 <!-- Open Graph / Facebook -->
 <meta property="og:type" content="website" />
 <meta property="og:url" content={Astro.url} />
 <meta property="og:title" content={title} />
-<meta property="og:site_name" content={title} />
+<meta property="og:site_name" content="Eventos Manga" />
 <meta property="og:description" content={description} />
 <meta property="og:image" content={new URL(image, Astro.url)} />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
 
 <!-- Twitter -->
 <meta property="twitter:card" content="summary_large_image" />
@@ -69,5 +78,17 @@ const { title, description, image = "/Portada.webp" } = Astro.props;
 <meta property="twitter:title" content={title} />
 <meta property="twitter:description" content={description} />
 <meta property="twitter:image" content={new URL(image, Astro.url)} />
+
+<!-- Structured Data: Organization -->
+<script type="application/ld+json" is:inline>
+    {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "Eventos Manga",
+        "url": "https://www.eventosmanga.es",
+        "logo": "https://www.eventosmanga.es/Logo.webp",
+        "sameAs": ["https://github.com/SantosAlarcon/eventosmanga"]
+    }
+</script>
 
 <ClientRouter />

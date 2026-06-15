@@ -43,12 +43,37 @@ const eventJSONLd = {
     image: event.data.heroImage,
     eventAttendanceMode: "https://schema.org/OfflineEventAttendanceMode",
     eventStatus: "https://schema.org/EventScheduled",
-    };
+    offers: {
+        "@type": "Offer",
+        price: event.data.price > 0 ? event.data.price.toString() : "0",
+        priceCurrency: "EUR",
+        availability: "https://schema.org/InStock",
+        url: event.data.url,
+    },
+};
+
+const breadcrumbLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+        {
+            "@type": "ListItem",
+            position: 1,
+            name: "Eventos Manga",
+            item: "https://www.eventosmanga.es",
+        },
+        {
+            "@type": "ListItem",
+            position: 2,
+            name: event.data.title,
+        },
+    ],
+};
 
     const sameDay = event.data.startDate.getUTCDate() === event.data.endDate.getUTCDate()
 ---
 
-<MainLayout title={`${event.data.title} - Eventos Manga`}>
+<MainLayout title={`${event.data.title} - Eventos Manga`} description={event.data.description}>
     <div class="event__container">
         <div class="event__info__header">
             <div class="event__info__cover">
@@ -302,4 +327,6 @@ const eventJSONLd = {
 </style>
 
 <script type="application/ld+json" set:html={JSON.stringify(eventJSONLd)} is:inline>
+</script>
+<script type="application/ld+json" set:html={JSON.stringify(breadcrumbLd)} is:inline>
 </script>
