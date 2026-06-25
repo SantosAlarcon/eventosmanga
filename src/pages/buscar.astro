@@ -1,9 +1,12 @@
 ---
 import MainLayout from "../layouts/MainLayout.astro";
-import Search from "astro-pagefind/components/Search";
+import Search from "astro-pagefind/components/Search.astro";
 ---
 
-<MainLayout title="Buscar eventos - Eventos Manga" description="Busca entre todos los eventos manga, salones y convenciones anime en España por nombre, ubicación o provincia.">
+<MainLayout
+    title="Buscar eventos - Eventos Manga"
+    description="Busca entre todos los eventos manga, salones y convenciones anime en España por nombre, ubicación o provincia."
+>
     <section class="buscar">
         <h1 class="buscar__title">Buscar eventos</h1>
         <p class="buscar__description">
@@ -12,9 +15,9 @@ import Search from "astro-pagefind/components/Search";
 
         <div class="buscar__container">
             <Search
-                id="search"
-                className="pagefind-search"
-                uiOptions={{
+                instance="search"
+                searchboxOptions={{
+                    placeholder: "Buscar evento...",
                     translations: {
                         placeholder: "Buscar eventos...",
                         zero_results: "No hay resultados para '[SEARCH_TERM]'",
@@ -24,6 +27,7 @@ import Search from "astro-pagefind/components/Search";
                         clear_search: "Limpiar búsqueda",
                     },
                 }}
+                className="pagefind-search"
             />
         </div>
 
