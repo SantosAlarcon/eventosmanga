@@ -22,7 +22,7 @@
 		"@fullcalendar/react": "^6.1.21",
 		"@fullcalendar/timegrid": "^6.1.21",
 		"@pagefind/default-ui": "^1.5.2",
-		"astro": "^7.0.2",
+		"astro": "^7.0.3",
 		"astro-pagefind": "2.0.0",
 		"fullcalendar": "^6.1.21",
 		"pagefind": "^1.5.2",
