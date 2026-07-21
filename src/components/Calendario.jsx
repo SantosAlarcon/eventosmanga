@@ -1,10 +1,15 @@
 /** @jsxImportSource react */
 
+import Calendar from "@fullcalendar/react";
 import dayGridPlugin from "@fullcalendar/react/daygrid";
-import esLocale from "@fullcalendar/react/locales/es";
 import listPlugin from "@fullcalendar/react/list";
+import esLocale from "@fullcalendar/react/locales/es";
+import themePlugin from "@fullcalendar/react/themes/forma";
 import { Suspense, useEffect, useState } from "react";
 import "../styles/calendar.css";
+import "@fullcalendar/react/skeleton.css";
+import "@fullcalendar/react/themes/forma/theme.css";
+import "@fullcalendar/react/themes/forma/palettes/red.css";
 
 const Calendario = () => {
 	const [events, setEvents] = useState([]);
@@ -35,7 +40,8 @@ const Calendario = () => {
 
 	return (
 		<Calendar
-			plugins={[dayGridPlugin, listPlugin]}
+			plugins={[themePlugin, dayGridPlugin, listPlugin]}
+			colorScheme="dark"
 			headerToolbar={{
 				left: "prev, next",
 				center: "title",

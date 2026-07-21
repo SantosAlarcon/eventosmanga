@@ -1,13 +1,16 @@
 ---
-import Calendar from "../../components/Calendar.jsx";
+import Calendario from "../../components/Calendario.jsx";
 import MainLayout from "../../layouts/MainLayout.astro";
 ---
 
-<MainLayout title="Calendario - Eventos Manga" description="Calendario completo de todos los eventos manga, salones y convenciones anime en España. Consulta fechas, horarios y ubicaciones de cada evento.">
+<MainLayout
+    title="Calendario - Eventos Manga"
+    description="Calendario completo de todos los eventos manga, salones y convenciones anime en España. Consulta fechas, horarios y ubicaciones de cada evento."
+>
     <section class="calendario">
         <h1 class="calendario__title">Calendario</h1>
         <div class="calendario__content">
-            <Calendar client:idle />
+            <Calendario client:idle />
         </div>
     </section>
 </MainLayout>
