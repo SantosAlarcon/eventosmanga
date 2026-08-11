@@ -9,7 +9,7 @@ export default defineConfig({
 	experimental: {
 		clientPrerender: true,
 		contentIntellisense: true,
-		svgOptimizer: svgoOptimizer()
+		svgOptimizer: svgoOptimizer(),
 	},
 	site: "https://www.eventosmanga.es",
 	prefetch: {
