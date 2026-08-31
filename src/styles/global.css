@@ -184,6 +184,11 @@ input {
 
 table {
 	width: 100%;
+	margin-bottom: 2rem;
+}
+
+ul {
+	margin-bottom: 2rem;
 }
 
 img {
