@@ -27,7 +27,7 @@
 		"react": "^19.2.8",
 		"react-dom": "^19.2.8",
 		"sharp": "^0.35.4",
-		"typescript": "^7.0.2"
+		"typescript": "^6.0.3"
 	},
 	"packageManager": "pnpm@11.25.0",
 	"devDependencies": {
